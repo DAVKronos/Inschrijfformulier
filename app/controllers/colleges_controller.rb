@@ -3,6 +3,7 @@ class CollegesController < ApplicationController
   end
 
   def new
+    @college = College.new
   end
 
   def create
