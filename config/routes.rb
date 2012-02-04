@@ -1,4 +1,12 @@
 Inschrijfformulier::Application.routes.draw do
+  get "colleges/index"
+
+  get "colleges/new"
+
+  get "colleges/create"
+
+  get "colleges/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
