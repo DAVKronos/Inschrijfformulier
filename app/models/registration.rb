@@ -2,7 +2,6 @@ class Registration < ActiveRecord::Base
   belongs_to :sex
   belongs_to :club
   belongs_to :college
-  belongs_to :study
 end
 # == Schema Information
 #
@@ -15,7 +14,6 @@ end
 #  club_id           :integer
 #  licensenumber     :string(255)
 #  college_id        :integer
-#  study_id          :integer
 #  studentnumber     :string(255)
 #  email             :string(255)
 #  banknumber        :string(255)
@@ -24,5 +22,6 @@ end
 #  bankAuthorization :boolean
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
+#  study             :string(255)
 #
 

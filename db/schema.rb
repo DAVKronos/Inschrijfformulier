@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204202154) do
+ActiveRecord::Schema.define(:version => 20120204220045) do
+
+  create_table "clubs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "colleges", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "registrations", :force => true do |t|
     t.string   "name"
@@ -20,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20120204202154) do
     t.integer  "club_id"
     t.string   "licensenumber"
     t.integer  "college_id"
-    t.integer  "study_id"
     t.string   "studentnumber"
     t.string   "email"
     t.string   "banknumber"
@@ -29,11 +40,17 @@ ActiveRecord::Schema.define(:version => 20120204202154) do
     t.boolean  "bankAuthorization"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "study"
   end
 
   add_index "registrations", ["club_id"], :name => "index_registrations_on_club_id"
   add_index "registrations", ["college_id"], :name => "index_registrations_on_college_id"
   add_index "registrations", ["sex_id"], :name => "index_registrations_on_sex_id"
-  add_index "registrations", ["study_id"], :name => "index_registrations_on_study_id"
+
+  create_table "sexes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
