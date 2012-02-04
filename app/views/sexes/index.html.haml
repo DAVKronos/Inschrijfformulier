@@ -1,0 +1,6 @@
+%ul
+  - @sexes.each do |sex|
+    %ul
+      =sex.name
+      = link_to 'verwijder', sex, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{sex.name}"
+= link_to 'nieuw', new_sex_path
