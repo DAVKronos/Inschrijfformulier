@@ -1,2 +1,6 @@
-%h1 Colleges#index
-%p Find me in app/views/colleges/index.html.erb
+%ul
+  - @colleges.each do |college|
+    %ul
+      =college.name
+      = link_to 'verwijder', college, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{college.name}"
+= link_to 'nieuw', new_college_path
