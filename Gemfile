@@ -5,7 +5,16 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
+gem 'haml', '~> 3.1.4'
+gem 'authlogic', '~> 3.1.0'
+gem 'acl9', '~> 0.12.0'
+
+group :development do
+  gem 'annotate', '~> 2.4.1.beta1'
+  gem 'populator', '~> 1.0.0'
+  gem 'faker', '~> 1.0.1'
+end
 
 
 # Gems used only for assets and not required
