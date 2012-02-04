@@ -1,0 +1,6 @@
+%ul
+  - @clubs.each do |club|
+    %ul
+      =club.name
+      = link_to 'verwijder', club, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{club.name}"
+= link_to 'nieuw', new_club_path

@@ -1,4 +1,5 @@
 Inschrijfformulier::Application.routes.draw do
+  resources :clubs
   resources :colleges
   resources :sexes
 
