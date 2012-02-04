@@ -3,6 +3,8 @@ Inschrijfformulier::Application.routes.draw do
   resources :clubs
   resources :colleges
   resources :sexes
+  
+  root :to => 'registrations#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
