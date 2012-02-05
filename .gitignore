@@ -16,3 +16,6 @@
 /log/*.log
 /tmp
 .DS_Store
+
+# Ignore asset cache
+public/assets/
