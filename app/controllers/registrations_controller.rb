@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
   def create
     registration = Registration.new(params[:registration])
     if registration.save
-      flash[:succes] = "Inschrijving voltooid"
+      flash[:success] = "Inschrijving voltooid"
       redirect_to registration
     else
       render 'new'
