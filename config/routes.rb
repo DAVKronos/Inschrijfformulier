@@ -1,4 +1,5 @@
 Inschrijfformulier::Application.routes.draw do
+  resources :events
   resources :registrations
   resources :clubs
   resources :colleges

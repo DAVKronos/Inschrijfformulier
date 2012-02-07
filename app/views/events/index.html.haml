@@ -1,0 +1,6 @@
+%ul
+  - @events.each do |event|
+    %ul
+      =event.name
+      = link_to 'verwijder', event, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{event.name}"
+= link_to 'nieuw', new_event_path
