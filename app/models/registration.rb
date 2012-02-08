@@ -2,6 +2,7 @@ class Registration < ActiveRecord::Base
   belongs_to :sex
   belongs_to :club
   belongs_to :college
+  serialize :volunteer
 end
 # == Schema Information
 #

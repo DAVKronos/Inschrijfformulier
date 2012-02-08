@@ -1,5 +1,15 @@
+%h1 Nieuwe Inschrijving
 = form_for @registration do |f|
   = render 'shared/error_messages', :object => f.object  
   = f.label :name
   = f.text_field :name
+  %br
+  = f.label :geslacht
+  = collection_select(:registration, :sex_id, Sex.all, :id, :name)
+  %br
+  = f.label :vereniging
+  = collection_select(:registration, :club_id, Club.all, :id, :name)
+  %br
+  = f.label :Onderwijsinstelling
+  = collection_select(:registration, :college_id, College.all, :id, :name)
   = f.submit
