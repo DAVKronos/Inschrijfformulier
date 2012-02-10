@@ -2,7 +2,8 @@ class Registration < ActiveRecord::Base
   belongs_to :sex
   belongs_to :club
   belongs_to :college
-  serialize :volunteer
+  has_many :event_participations
+  has_many :events, :through => :event_participations
 end
 # == Schema Information
 #
@@ -24,5 +25,6 @@ end
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
 #  study             :string(255)
+#  volunteer         :string(255)
 #
 

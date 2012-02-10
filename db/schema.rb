@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208110533) do
+ActiveRecord::Schema.define(:version => 20120210193233) do
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20120208110533) do
 
   create_table "colleges", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "days", :force => true do |t|
+    t.date     "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -72,5 +78,15 @@ ActiveRecord::Schema.define(:version => 20120208110533) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "volunteer_days", :force => true do |t|
+    t.integer  "day_id"
+    t.integer  "registration_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "volunteer_days", ["day_id"], :name => "index_volunteer_days_on_day_id"
+  add_index "volunteer_days", ["registration_id"], :name => "index_volunteer_days_on_registration_id"
 
 end
