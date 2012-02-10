@@ -1,10 +1,10 @@
 100m
-200m 
-400m 
-800m 
-1500m 
+200m
+400m
+800m
+1500m
 5000m
-110m horden
+100m horden
 400m horden
 Verspringen
 Hoogspringen

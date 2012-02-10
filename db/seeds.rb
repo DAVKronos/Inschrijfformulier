@@ -11,12 +11,26 @@ Sex.find_or_create_by_name :Vrouw
 
 open("db/scholen.txt") do |colleges|
   colleges.read.each_line do |college|
-    College.find_or_create_by_name college
+    College.find_or_create_by_name college.chomp
   end
 end
 
 open("db/onderdelenmannen.txt") do |events|
   events.read.each_line do |event|
-    Event.find_or_create_by_name(event) { |e| e.sex = Sex.find_by_name :Man }
+    Event.find_or_create_by_name_and_sex_id(event.chomp, :sex_id => Sex.find_by_name(:Man).id)
+  end
+end
+
+open("db/onderdelenvrouwen.txt") do |events|
+  events.read.each_line do |event|
+    Event.find_or_create_by_name_and_sex_id(event.chomp, :sex_id => Sex.find_by_name(:Vrouw).id)
+  end
+end
+
+Club.find_or_create_by_name('geen')
+
+open("db/verenigingen.txt") do |clubs|
+  clubs.read.each_line do |club|
+    Club.find_or_create_by_name(club.chomp)
   end
 end
