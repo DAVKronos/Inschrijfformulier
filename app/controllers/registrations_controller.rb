@@ -5,11 +5,15 @@ class RegistrationsController < ApplicationController
 
   def new
     @registration = Registration.new
+    @events = Event.all
+    @event_participation = EventParticipation.new
   end
 
   def create
     registration = Registration.new(params[:registration])
-    if registration.save
+    registration.event_participations.build(params[:event_participation])
+   
+   if registration.save
       flash[:success] = "Inschrijving voltooid"
       redirect_to registration
     else
@@ -33,6 +37,7 @@ class RegistrationsController < ApplicationController
 
   def show
     @registration = Registration.find(params[:id])
+    @events = @registration.events
   end
 
   def destroy

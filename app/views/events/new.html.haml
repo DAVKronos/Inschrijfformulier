@@ -2,5 +2,7 @@
   = render 'shared/error_messages', :object => f.object  
   = f.label :name
   = f.text_field :name
+  = f.label :category
+  = collection_select(:event, :sex_id, Sex.all, :id, :name)
   = f.submit
 	

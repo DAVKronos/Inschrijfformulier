@@ -12,4 +12,7 @@
   %br
   = f.label :Onderwijsinstelling
   = collection_select(:registration, :college_id, College.all, :id, :name)
+  %br
+  = f.label :eerstonderdeel
+  = collection_select(:event_participation, :event_id, @events, :id, :name )
   = f.submit

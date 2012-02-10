@@ -43,12 +43,12 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "sex_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "events", ["category_id"], :name => "index_events_on_category_id"
+  add_index "events", ["sex_id"], :name => "index_events_on_sex_id"
 
   create_table "registrations", :force => true do |t|
     t.string   "name"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "study"
-    t.string   "volunteer"
   end
 
   add_index "registrations", ["club_id"], :name => "index_registrations_on_club_id"
