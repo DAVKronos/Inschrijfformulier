@@ -2,7 +2,7 @@ class CreateRegistrations < ActiveRecord::Migration
   def change
     create_table :registrations do |t|
       t.string :name
-      t.string :birthdate
+      t.date :birthdate
       t.references :sex
       t.references :club
       t.string :licensenumber
@@ -14,6 +14,13 @@ class CreateRegistrations < ActiveRecord::Migration
       t.string :bankAccountName
       t.string :bankLocation
       t.boolean :bankAuthorization
+      t.boolean :meetRegulations
+      t.boolean :zeusDatabase
+      t.boolean :diner
+      t.boolean :party
+      t.string :shirtsize
+      t.string :volunteerPreferences
+      t.string :volunteerSkills
 
       t.timestamps
     end

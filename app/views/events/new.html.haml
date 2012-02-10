@@ -1,8 +1,8 @@
 = form_for @event do |f|
   = render 'shared/error_messages', :object => f.object  
-  = f.label :name
+  = f.label :naam
   = f.text_field :name
-  = f.label :category
+  = f.label :geslacht
   = collection_select(:event, :sex_id, Sex.all, :id, :name)
   = f.submit
 	

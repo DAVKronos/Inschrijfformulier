@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
 
   create_table "registrations", :force => true do |t|
     t.string   "name"
-    t.string   "birthdate"
+    t.date     "birthdate"
     t.integer  "sex_id"
     t.integer  "club_id"
     t.string   "licensenumber"
@@ -63,6 +63,11 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
     t.string   "bankAccountName"
     t.string   "bankLocation"
     t.boolean  "bankAuthorization"
+    t.boolean  "meetRegulations"
+    t.boolean  "zeusDatabase"
+    t.boolean  "diner"
+    t.boolean  "party"
+    t.string   "shirtsize"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "study"
