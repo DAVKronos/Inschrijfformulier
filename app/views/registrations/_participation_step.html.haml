@@ -13,3 +13,7 @@
 = f.label :datum
 = date_select(:event_participation, :best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
 = f.submit "Voeg Toe", :name => "new_participation_button"
+
+- Day.all.each do |day|
+  = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
+  = f.label day.date

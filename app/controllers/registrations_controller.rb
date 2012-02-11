@@ -6,11 +6,13 @@ class RegistrationsController < ApplicationController
   def new
     session[:registration_params] ||= {}
     session[:participations] ||= []
+    session[:volunteer_days] ||= {}
     @registration = Registration.new(session[:registration_params])
     @registration.current_step = session[:registration_step]
     @event_participations = @registration.events
     @event_participation = EventParticipation.new
     @events = Event.all
+    @days = Day.all
   end
 
   def create
@@ -19,10 +21,10 @@ class RegistrationsController < ApplicationController
       @registration.current_step = session[:registration_step]
       session[:participations].each do |parti|
         @registration.event_participations.build(parti)
-        puts session[:participations]
       end
       @event_participation = EventParticipation.new
       @events = Event.where("sex_id = '#{@registration.sex.id}'")
+      @days = Day.all
       @event_participations = @registration.event_participations
       if @registration.valid?
         if params[:back_button]

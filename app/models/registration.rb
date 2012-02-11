@@ -4,6 +4,8 @@ class Registration < ActiveRecord::Base
   belongs_to :college
   has_many :event_participations, :dependent => :destroy
   has_many :events, :through => :event_participations
+  has_many :volunteer_days, :dependent => :destroy
+  has_many :days, :through => :volunteer_days
   
   attr_writer :current_step
   
@@ -14,7 +16,18 @@ class Registration < ActiveRecord::Base
   end
 
   def steps
-    %w[general participation athlete volunteer secondaries payment confirmation]
+    returnArray = %w[general participation]
+    if self.athlete?
+      returnArray += %w[athlete]
+    elsif self.volunteer?
+      returnArray += %w[volunteer]
+    end
+    returnArray += %w[secondaries]
+    if self.mustPay?
+      returnArray += %w[payment]
+    end
+    returnArray += %w[confirmation]
+    
   end
 
   def next_step
@@ -38,6 +51,52 @@ class Registration < ActiveRecord::Base
       self.current_step = step
       valid?
     end
+  end
+  
+  def volunteer?
+    self.days.size > 0
+  end
+  
+  def athlete?
+    self.events.size > 0
+  end
+  
+  def mustPay?
+  end
+  
+  def totalCost
+    returnCost = 0
+    if diner
+      returnCost += self.dinerCost
+    end
+    if party
+      returnCost += self.partyCost
+    end
+    if shirtsize != ""
+      returnCost += self.shirtCost
+    end
+    returnCost
+  end
+  
+  def dinerCost
+    if self.volunteer?
+      0
+    else
+      10
+    end
+      
+  end
+  
+  def partyCost
+    10
+  end
+  
+  def shirtCost
+    returnCost = 10
+    if self.volunteer?
+      returnCost = 0
+    end
+    returnCost
   end
 end
 # == Schema Information

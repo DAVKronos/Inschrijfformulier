@@ -1,0 +1,6 @@
+= form_for @day do |f|
+  = render 'shared/error_messages', :object => f.object  
+  = f.label :date
+  = f.date_select :date
+  = f.submit
+	

@@ -1,0 +1,6 @@
+%ul
+  - @days.each do |day|
+    %ul
+      =day.date
+      = link_to 'verwijder', day, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{day.date}"
+= link_to 'nieuw', new_day_path
