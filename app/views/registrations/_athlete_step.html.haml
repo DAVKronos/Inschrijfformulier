@@ -6,3 +6,12 @@
 %br
 = f.label :geboortedatum
 = date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year})
+%br
+= f.label :licentienummer_atletiekunie
+= f.text_field :licensenumber
+%br
+= f.label :studie
+= f.text_field :study
+%br
+= f.label :studentnummer
+= f.text_field :studentnumber

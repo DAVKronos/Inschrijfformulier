@@ -58,7 +58,7 @@ class Registration < ActiveRecord::Base
   end
   
   def athlete?
-    self.events.size > 0
+    self.event_participations.size > 0
   end
   
   def mustPay?
@@ -75,6 +75,9 @@ class Registration < ActiveRecord::Base
     if shirtsize != ""
       returnCost += self.shirtCost
     end
+    if athlete?
+      returnCost += 6
+    end
     returnCost
   end
   
@@ -82,17 +85,17 @@ class Registration < ActiveRecord::Base
     if self.volunteer?
       0
     else
-      10
+      7.50
     end
       
   end
   
   def partyCost
-    10
+    8.00
   end
   
   def shirtCost
-    returnCost = 10
+    returnCost = 12.00
     if self.volunteer?
       returnCost = 0
     end
