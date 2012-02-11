@@ -1,0 +1,5 @@
+- @event_participations.each do |event|
+  =event.event.name
+= f.label :eerstonderdeel
+= collection_select(:event_participation, :event_id, @events, :id, :name )
+= f.submit "Voeg Toe", :name => "new_participation_button"

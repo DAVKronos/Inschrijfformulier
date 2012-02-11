@@ -1,6 +1,11 @@
 %ul
-  = registration.name
-  = registration.sex.name
-  = registration.club.name
-  = registration.college.name
-  = link_to 'verwijder', registration, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{registration.name}"
+  %li
+    = registration.name
+  %li
+    = registration.sex.name
+  %li
+    = registration.club.name
+  %li
+    = registration.college.name
+  %li
+    = link_to 'verwijder', registration, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{registration.name}"

@@ -1,0 +1,5 @@
+= f.label :vereniging
+= collection_select(:registration, :club_id, Club.all, :id, :name)
+%br
+= f.label :onderwijsinstelling
+= collection_select(:registration, :college_id, College.all, :id, :name)

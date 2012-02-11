@@ -1,0 +1,8 @@
+= f.label :naam
+= f.text_field :name
+%br
+= f.label :geslacht
+= collection_select(:registration, :sex_id, Sex.all, :id, :name)
+%br
+= f.label :email_adres
+= f.email_field :email

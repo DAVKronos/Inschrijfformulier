@@ -1,48 +1,6 @@
 %h1 Nieuwe Inschrijving
 = form_for @registration do |f|
   = render 'shared/error_messages', :object => f.object  
-  = f.label :naam
-  = f.text_field :name
-  %br
-  = f.label :geslacht
-  = collection_select(:registration, :sex_id, Sex.all, :id, :name)
-  %br
-  = f.label :email_adres
-  = f.email_field :email
-  %br
-  = f.label :vereniging
-  = collection_select(:registration, :club_id, Club.all, :id, :name)
-  %br
-  = f.label :onderwijsinstelling
-  = collection_select(:registration, :college_id, College.all, :id, :name)
-  %br
-  = f.label :eerstonderdeel
-  = collection_select(:event_participation, :event_id, @events, :id, :name )
-  %br
-  = f.label :diner
-  = f.check_box :diner
-  %br
-  = f.label :"feest, overnachting & onbijt"
-  = f.check_box :party
-  %br
-  = f.label :functioneel_sportshirt
-  = select(:registration, :shirtsize, [['geen', nil], ['S', "s"], ['M', "m"], ['L', "l"], ['XL', "xl"]])
-  %br
-  = f.label :bankrekeningnummer
-  = f.text_field :banknumber
-  %br
-  = f.label :naam_rekeninghouder
-  = f.text_field :bankAccountName
-  %br
-  = f.label :plaats
-  = f.text_field :bankLocation
-  %br
-  = f.label :ik_machtig_hierbij_de_organisatie_van_het_nskbaan_om_geld_af_te_schrijven
-  = f.check_box :bankAuthorization
-  %br
-  = f.label :ik_ga_akkoord_met_het_wedstrijdreglement
-  = f.check_box :meetRegulations
-  %br
-  = f.label :in_de_zeus_database
-  = f.check_box :zeusDatabase
-  = f.submit
+  = render "#{@registration.current_step}_step", :f => f
+  = f.submit "Continue"
+  = f.submit "Back", :name => "back_button" unless @registration.first_step?
