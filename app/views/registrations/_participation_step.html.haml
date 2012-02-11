@@ -1,19 +1,20 @@
-- @event_participations.each do |partic|
-  =partic.event.name
-  =partic.best_performance
-  =partic.best_location
-  =partic.best_date
-  %br
-= f.label :onderdeel_toevoegen
-= collection_select(:event_participation, :event_id, @events, :id, :name )
-= f.label :beste_prestatie
-= text_field(:event_participation, :best_performance)
-= f.label :plaats
-= text_field(:event_participation, :best_location)
-= f.label :datum
-= date_select(:event_participation, :best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
-= f.submit "Voeg Toe", :name => "new_participation_button"
+- @registration.events.each do |partic|
+  =partic.name
 
+=f.fields_for :event_participations do |p|
+  = p.collection_select(:event_id, @events, :id, :name)
+  = p.label :beste_prestatie
+  = p.text_field(:best_performance)
+  = p.label :plaats
+  = p.text_field(:best_location)
+  = p.label :datum
+  = p.date_select(:best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
+  %br
+
+= f.submit "Ik wil nog een onderdeel meedoen", :name => "new_participation_button"
+
+
+op deze dagen wil ik graag meehelpen als vrijwilliger/jurylid:
 - Day.all.each do |day|
   = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
   = f.label day.date

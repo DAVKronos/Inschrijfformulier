@@ -6,6 +6,7 @@ class Registration < ActiveRecord::Base
   has_many :events, :through => :event_participations
   has_many :volunteer_days, :dependent => :destroy
   has_many :days, :through => :volunteer_days
+  accepts_nested_attributes_for :event_participations
   
   attr_writer :current_step
   
@@ -62,6 +63,7 @@ class Registration < ActiveRecord::Base
   end
   
   def mustPay?
+    self.totalCost > 0
   end
   
   def totalCost
@@ -76,18 +78,17 @@ class Registration < ActiveRecord::Base
       returnCost += self.shirtCost
     end
     if athlete?
-      returnCost += 6
+      returnCost += (6 + 4*(event_participations.size-1))
     end
     returnCost
   end
   
   def dinerCost
-    if self.volunteer?
-      0
-    else
-      7.50
+    returnCost = 0
+    if !self.volunteer?
+      returnCost = 7.50
     end
-      
+    returnCost
   end
   
   def partyCost

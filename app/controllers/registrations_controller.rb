@@ -19,20 +19,14 @@ class RegistrationsController < ApplicationController
     session[:registration_params].deep_merge!(params[:registration]) if params[:registration]
       @registration = Registration.new(session[:registration_params])
       @registration.current_step = session[:registration_step]
-      session[:participations].each do |parti|
-        @registration.event_participations.build(parti)
-      end
       @event_participation = EventParticipation.new
-      @events = Event.where("sex_id = '#{@registration.sex.id}'").select{|event| @registration.events.include?(event)}
+      @events = Event.where("sex_id = '#{@registration.sex.id}'").select{|event| !@registration.events.include?(event)}
       @days = Day.all
-      @event_participations = @registration.event_participations
       if @registration.valid?
         if params[:back_button]
           @registration.previous_step
         elsif params[:new_participation_button]
-          session[:participations] << params[:event_participation]
-            @registration.event_participations.build(params[:event_participation])
-          @event_participations = @registration.event_participations
+          @registration.event_participations.build
         elsif @registration.last_step?
           @registration.save if @registration.all_valid?
         else

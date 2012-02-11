@@ -28,6 +28,7 @@ open("db/onderdelenvrouwen.txt") do |events|
 end
 
 Club.find_or_create_by_name('geen')
+Day.find_or_create_by_date("2012-05-16")
 
 open("db/verenigingen.txt") do |clubs|
   clubs.read.each_line do |club|
