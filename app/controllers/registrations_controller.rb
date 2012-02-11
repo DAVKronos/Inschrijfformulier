@@ -29,6 +29,11 @@ class RegistrationsController < ApplicationController
           @registration.previous_step
         elsif params[:new_participation_button]
           session[:participations] << params[:event_participation]
+          session[:participations].each do |parti|
+            @registration.event_participations.build(parti)
+            puts session[:participations]
+          end
+          @event_participations = @registration.event_participations
         elsif @registration.last_step?
           @registration.save if @registration.all_valid?
         else
@@ -39,7 +44,7 @@ class RegistrationsController < ApplicationController
       if @registration.new_record?
         render "new"
       else
-        session[:registration_step] = session[:registration_params] = nil
+        session[:registration_step] = session[:registration_params] = session[:participations] = nil
         flash[:notice] = "Inschrijving bevestigd!"
         redirect_to @registration
       end
