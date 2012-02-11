@@ -29,10 +29,7 @@ class RegistrationsController < ApplicationController
           @registration.previous_step
         elsif params[:new_participation_button]
           session[:participations] << params[:event_participation]
-          session[:participations].each do |parti|
-            @registration.event_participations.build(parti)
-            puts session[:participations]
-          end
+            @registration.event_participations.build(params[:event_participation])
           @event_participations = @registration.event_participations
         elsif @registration.last_step?
           @registration.save if @registration.all_valid?
@@ -41,7 +38,10 @@ class RegistrationsController < ApplicationController
         end
         session[:registration_step] = @registration.current_step
       end
-      if @registration.new_record?
+      if params[:cancel_button]
+        session[:registration_step] = session[:registration_params] = session[:participations] = nil
+        redirect_to "http://kronos.nl"
+      elsif @registration.new_record?
         render "new"
       else
         session[:registration_step] = session[:registration_params] = session[:participations] = nil

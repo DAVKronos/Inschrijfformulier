@@ -3,6 +3,9 @@ class CreateEventParticipations < ActiveRecord::Migration
     create_table :event_participations do |t|
       t.references :event
       t.references :registration
+      t.string :best_performance
+      t.date :best_date
+      t.string :best_location
 
       t.timestamps
     end

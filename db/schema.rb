@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
   create_table "event_participations", :force => true do |t|
     t.integer  "event_id"
     t.integer  "registration_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "best_performance"
+    t.date     "best_date"
+    t.string   "best_location"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "event_participations", ["event_id"], :name => "index_event_participations_on_event_id"
@@ -68,8 +71,10 @@ ActiveRecord::Schema.define(:version => 20120210193233) do
     t.boolean  "diner"
     t.boolean  "party"
     t.string   "shirtsize"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "volunteerPreferences"
+    t.string   "volunteerSkills"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "study"
   end
 

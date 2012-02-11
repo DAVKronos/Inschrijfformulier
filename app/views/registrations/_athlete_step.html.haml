@@ -3,3 +3,6 @@
 %br
 = f.label :onderwijsinstelling
 = collection_select(:registration, :college_id, College.all, :id, :name)
+%br
+= f.label :geboortedatum
+= date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year})

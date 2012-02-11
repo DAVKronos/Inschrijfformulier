@@ -4,3 +4,4 @@
   = render "#{@registration.current_step}_step", :f => f
   = f.submit "Continue"
   = f.submit "Back", :name => "back_button" unless @registration.first_step?
+  = f.submit "Cancel", :name => "cancel_button"

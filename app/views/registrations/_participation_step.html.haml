@@ -1,5 +1,15 @@
-- @event_participations.each do |event|
-  =event.event.name
-= f.label :eerstonderdeel
+- @event_participations.each do |partic|
+  =partic.event.name
+  =partic.best_performance
+  =partic.best_location
+  =partic.best_date
+  %br
+= f.label :onderdeel_toevoegen
 = collection_select(:event_participation, :event_id, @events, :id, :name )
+= f.label :beste_prestatie
+= text_field(:event_participation, :best_performance)
+= f.label :plaats
+= text_field(:event_participation, :best_location)
+= f.label :datum
+= date_select(:event_participation, :best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
 = f.submit "Voeg Toe", :name => "new_participation_button"

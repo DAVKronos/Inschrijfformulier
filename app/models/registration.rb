@@ -7,6 +7,8 @@ class Registration < ActiveRecord::Base
   
   attr_writer :current_step
   
+  validates :name, :email, :presence => true
+  
   def current_step
     @current_step || steps.first
   end
@@ -42,21 +44,28 @@ end
 #
 # Table name: registrations
 #
-#  id                :integer         not null, primary key
-#  name              :string(255)
-#  birthdate         :string(255)
-#  sex_id            :integer
-#  club_id           :integer
-#  licensenumber     :string(255)
-#  college_id        :integer
-#  studentnumber     :string(255)
-#  email             :string(255)
-#  banknumber        :string(255)
-#  bankAccountName   :string(255)
-#  bankLocation      :string(255)
-#  bankAuthorization :boolean
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
-#  study             :string(255)
+#  id                   :integer         not null, primary key
+#  name                 :string(255)
+#  birthdate            :date
+#  sex_id               :integer
+#  club_id              :integer
+#  licensenumber        :string(255)
+#  college_id           :integer
+#  studentnumber        :string(255)
+#  email                :string(255)
+#  banknumber           :string(255)
+#  bankAccountName      :string(255)
+#  bankLocation         :string(255)
+#  bankAuthorization    :boolean
+#  meetRegulations      :boolean
+#  zeusDatabase         :boolean
+#  diner                :boolean
+#  party                :boolean
+#  shirtsize            :string(255)
+#  volunteerPreferences :string(255)
+#  volunteerSkills      :string(255)
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  study                :string(255)
 #
 
