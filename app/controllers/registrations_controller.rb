@@ -23,7 +23,7 @@ class RegistrationsController < ApplicationController
         @registration.event_participations.build(parti)
       end
       @event_participation = EventParticipation.new
-      @events = Event.where("sex_id = '#{@registration.sex.id}'")
+      @events = Event.where("sex_id = '#{@registration.sex.id}'").select{|event| @registration.events.include?(event)}
       @days = Day.all
       @event_participations = @registration.event_participations
       if @registration.valid?
