@@ -1,9 +1,12 @@
 = f.label :diner
 = f.check_box :diner
+= @registration.dinerCost
 %br
 = f.label :"feest, overnachting & onbijt"
 = f.check_box :party
+= @registration.partyCost
 %br
 = f.label :functioneel_sportshirt
 = select(:registration, :shirtsize, [['geen', nil], ['S', "s"], ['M', "m"], ['L', "l"], ['XL', "xl"]])
+= @registration.shirtCost
 %br

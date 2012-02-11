@@ -42,7 +42,7 @@ class RegistrationsController < ApplicationController
       end
       if params[:cancel_button]
         session[:registration_step] = session[:registration_params] = session[:participations] = nil
-        redirect_to "http://kronos.nl"
+        redirect_to "http://www.youtube.com/watch?v=dQw4w9WgXcQ&ob=av2e"
       elsif @registration.new_record?
         render "new"
       else
