@@ -16,6 +16,9 @@ class Registration < ActiveRecord::Base
   validates_presence_of :meetRegulations, :if => lambda { |o| o.current_step == "confirmation" && o.athlete? }
   validates_presence_of :bankAuthorization, :if => lambda { |o| o.current_step == "confirmation" && o.mustPay? }
   validates_presence_of :licensenumber, :study, :studentnumber, :club_id, :college_id, :birthdate, :if => lambda { |o| o.current_step =="athlete" }
+  validates_presence_of :event_participations, :if => lambda { |o| o.current_step == "participation" && !o.volunteer? }
+  validates_presence_of :day_ids, :if => lambda { |o| o.current_step == "participation" && !o.athlete? }
+  validates_presence_of :banknumber, :bankLocation, :bankAccountName, :if => lambda { |o| o.current_step == "payment"}
   
   def current_step
     @current_step || steps.first

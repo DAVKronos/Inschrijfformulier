@@ -1,20 +1,22 @@
-- @registration.events.each do |partic|
-  =partic.name
-
 =f.fields_for :event_participations do |p|
   = p.collection_select(:event_id, @events, :id, :name)
   = p.label :beste_prestatie
-  = p.text_field(:best_performance)
+  = p.text_field :best_performance, :class => "participation"
   = p.label :plaats
-  = p.text_field(:best_location)
+  = p.text_field :best_location, :class => "participation"
   = p.label :datum
   = p.date_select(:best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
   %br
+%br
+= f.submit "Ik wil nog een onderdeel meedoen", :name => "new_participation_button" if f.object.athlete?
+= f.submit "Jureren is niks voor mij", :name => "new_participation_button" if !f.object.athlete?
+%br
 
-= f.submit "Ik wil nog een onderdeel meedoen", :name => "new_participation_button"
+%p 
+  %h5 Op de volgende dagen wil ik meehelpen als vrijwilliger/jurylid:
+  <input type="hidden" value="" name="registration[day_ids][]">
+  - Day.all.each do |day|
+    = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
+    = f.label day.date
+    %br
 
-
-op deze dagen wil ik graag meehelpen als vrijwilliger/jurylid:
-- Day.all.each do |day|
-  = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
-  = f.label day.date

@@ -34,6 +34,8 @@ class RegistrationsController < ApplicationController
         end
      elsif params[:back_button]
          @registration.previous_step
+     elsif params[:new_participation_button]
+         @registration.event_participations.build
      end
       session[:registration_step] = @registration.current_step
       if params[:cancel_button]

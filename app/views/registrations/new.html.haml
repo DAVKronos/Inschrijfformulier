@@ -1,4 +1,4 @@
-%h1 Nieuwe Inschrijving
+%h1 Stap #{@registration.steps.index(@registration.current_step) + 1} van #{@registration.steps.size}
 = form_for @registration do |f| 
   = render "#{@registration.current_step}_step", :f => f
   = f.submit "Continue", :id => "continueButton"

@@ -13,9 +13,10 @@
     = csrf_meta_tags
 
   %body
+    .container
 
-    %section{:class => "round"}
-      -flash.each do |key, value|
-        = content_tag :div, value, :class => "flash #{key}"
+      %section{:class => "round"}
+        -flash.each do |key, value|
+          = content_tag :div, value, :class => "flash #{key}"
 
-    = yield
+      = yield
