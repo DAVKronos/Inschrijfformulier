@@ -32,8 +32,10 @@ class RegistrationsController < ApplicationController
         else
           @registration.next_step
         end
-        session[:registration_step] = @registration.current_step
-      end
+     elsif params[:back_button]
+         @registration.previous_step
+     end
+      session[:registration_step] = @registration.current_step
       if params[:cancel_button]
         session[:registration_step] = session[:registration_params] = session[:participations] = nil
         redirect_to "http://www.youtube.com/watch?v=dQw4w9WgXcQ&ob=av2e"

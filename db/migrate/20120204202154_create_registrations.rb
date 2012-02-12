@@ -20,7 +20,6 @@ class CreateRegistrations < ActiveRecord::Migration
       t.boolean :party
       t.string :shirtsize
       t.string :volunteerPreferences
-      t.string :volunteerSkills
 
       t.timestamps
     end

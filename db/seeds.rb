@@ -29,6 +29,8 @@ end
 
 Club.find_or_create_by_name('geen')
 Day.find_or_create_by_date("2012-05-16")
+Day.find_or_create_by_date("2012-05-17")
+Day.find_or_create_by_date("2012-05-18")
 
 open("db/verenigingen.txt") do |clubs|
   clubs.read.each_line do |club|

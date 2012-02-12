@@ -1,4 +1,5 @@
 class Registration < ActiveRecord::Base
+  serialize :volunteerPreferences, Hash
   belongs_to :sex
   belongs_to :club
   belongs_to :college
@@ -8,9 +9,13 @@ class Registration < ActiveRecord::Base
   has_many :days, :through => :volunteer_days
   accepts_nested_attributes_for :event_participations
   
+  
   attr_writer :current_step
   
-  validates :name, :email, :presence => true
+  validates_presence_of :name, :email, :if => lambda { |o| o.current_step == "general" }
+  validates_presence_of :meetRegulations, :if => lambda { |o| o.current_step == "confirmation" && o.athlete? }
+  validates_presence_of :bankAuthorization, :if => lambda { |o| o.current_step == "confirmation" && o.mustPay? }
+  validates_presence_of :licensenumber, :study, :studentnumber, :club_id, :college_id, :birthdate, :if => lambda { |o| o.current_step =="athlete" }
   
   def current_step
     @current_step || steps.first
@@ -30,6 +35,22 @@ class Registration < ActiveRecord::Base
     returnArray += %w[confirmation]
     
   end
+  
+  def self.serialized_attr_accessor(*args)
+    args.each do |method_name|
+      eval "
+        def #{method_name}
+          (self.volunteerPreferences || {})[:#{method_name}]
+        end
+        def #{method_name}=(value)
+          self.volunteerPreferences ||= {}
+          self.volunteerPreferences[:#{method_name}] = value
+        end
+      "
+    end
+  end
+
+  serialized_attr_accessor :onderdeel_voorkeuren, :jureren, :materiaalploeg, :catering, :jury_algemeen, :jury_tijd, :jury_scheidsrechter, :meldbureau, :wedstrijdsec
 
   def next_step
     self.current_step = steps[steps.index(current_step)+1]
