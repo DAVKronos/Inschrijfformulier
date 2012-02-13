@@ -1,4 +1,8 @@
-= f.label :ik_machtig_hierbij_de_organisatie_van_het_nskbaan_om_geld_af_te_schrijven
+%h1 Overzicht
+%h5 Controleer a.u.b. je gegevens
+= render @registration
+%h5 Als je gegevens kloppen moet je hier nog even wat goedkeuren
+= f.label "Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @registration.totalCost} van mijn rekening af te schrijven"
 = f.check_box :bankAuthorization, :validate => false
 %br
 = f.label :ik_ga_akkoord_met_het_wedstrijdreglement
@@ -6,6 +10,3 @@
 %br
 = f.label :in_de_zeus_database
 = f.check_box :zeusDatabase
-%br
-totaalbedrag:
-= @registration.totalCost

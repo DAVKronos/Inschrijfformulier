@@ -1,4 +1,7 @@
+%h1 Deelname gegevens
+- event_counter = 1
 =f.fields_for :event_participations do |p|
+  = p.label "onderdeel #{event_counter}"
   = p.collection_select(:event_id, @events, :id, :name)
   = p.label :beste_prestatie
   = p.text_field :best_performance, :class => "participation"
@@ -6,17 +9,21 @@
   = p.text_field :best_location, :class => "participation"
   = p.label :datum
   = p.date_select(:best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year})
+  - event_counter += 1
   %br
 %br
-= f.submit "Ik wil nog een onderdeel meedoen", :name => "new_participation_button" if f.object.athlete?
-= f.submit "Jureren is niks voor mij", :name => "new_participation_button" if !f.object.athlete?
+- onderC = f.object.event_participations.size
+- onderT = onderC > 1 ? "onderdelen" : "onderdeel"
+= f.submit "#{onderC} #{onderT} is voor watjes, ik doe er #{onderC +1}!", :name => "new_participation_button" if f.object.athlete?
+= f.submit "Ik doe liever aan een onderdeel mee", :name => "new_participation_button" if !f.object.athlete?
+= f.submit "Doe d'r maar eentje minder", :name => "reset_participations" if f.object.athlete?
 %br
 
 %p 
   %h5 Op de volgende dagen wil ik meehelpen als vrijwilliger/jurylid:
   <input type="hidden" value="" name="registration[day_ids][]">
   - Day.all.each do |day|
-    = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
-    = f.label day.date
     %br
+    = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
+    = f.label l day.date, :format => :xlong
 

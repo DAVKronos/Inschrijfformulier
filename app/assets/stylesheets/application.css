@@ -11,12 +11,133 @@
  *= require_self
  *= require_tree .
 */
-input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input):not(.participation), textarea {
+input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input), textarea {
     border: 1px solid #CCCCCC;
     border-radius: 2px 2px 2px 2px;
     display: block;
     font-family: "Arial","Helvetica",sans-serif;
     font-size: 14px;
     height: auto;
+    margin-top: 1px;
     padding: 0.3em;
+}
+select {
+	display:block;
+}
+#continueButton{
+    background-color: #A7E568;
+    background-image: -moz-linear-gradient(center top , #C1ED94 0pt, #8EDE3D 100%);
+}
+
+input[type="submit"] {
+    padding: 3px 9px 4px;
+}
+input[type="submit"] {
+    -moz-transition: border 0.1s linear 0s;
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , white 0pt, #DDDDDD 100%);
+    border: 1px solid #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px #CFCFCF;
+    color: #505050;
+    cursor: pointer;
+    display: inline;
+    font-size: 12px;
+    font-style: normal;
+    min-height: 10px;
+    min-width: 90px;
+    padding: 4px 9px;
+    white-space: nowrap;
+}
+
+select + select { 
+	display:inline; 
+} 
+.field_with_errors {
+  position: relative;
+}
+
+.field_with_errors input {
+    border: 1px solid #DD0000 !important;
+    box-shadow: 0 0 8px #FF7777;
+}
+
+.field_with_errors .message {
+    color: #DD0000;
+    font-size: 12px;
+    left: auto;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+}
+
+.tooltip {
+    display: block;
+    font-size: 11px;
+    opacity: 0;
+    padding: 5px;
+    position: absolute;
+    visibility: visible;
+    z-index: 1020;
+}
+.tooltip.in {
+    opacity: 0.8;
+}
+.tooltip.top {
+    margin-top: -2px;
+}
+.tooltip.right {
+    margin-left: 2px;
+}
+.tooltip.bottom {
+    margin-top: 2px;
+}
+.tooltip.left {
+    margin-left: -2px;
+}
+.tooltip.top .tooltip-arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000000;
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+}
+.tooltip.left .tooltip-arrow {
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #000000;
+    border-top: 5px solid transparent;
+    margin-top: -5px;
+    right: 0;
+    top: 50%;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom: 5px solid #000000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    left: 50%;
+    margin-left: -5px;
+    top: 0;
+}
+.tooltip.right .tooltip-arrow {
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #000000;
+    border-top: 5px solid transparent;
+    left: 0;
+    margin-top: -5px;
+    top: 50%;
+}
+.tooltip-inner {
+    background-color: #000000;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    max-width: 200px;
+    padding: 3px 8px;
+    text-align: center;
+    text-decoration: none;
+}
+.tooltip-arrow {
+    height: 0;
+    position: absolute;
+    width: 0;
 }

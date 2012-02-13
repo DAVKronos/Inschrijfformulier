@@ -1,8 +1,10 @@
+%h1 Betalingsgegevens
+%h5 Geef hier je bankgegevens op zodat de organisatie #{number_to_currency @registration.totalCost} van je rekening kan afschrijven
 = f.label :bankrekeningnummer
 = f.text_field :banknumber
-%br
+
 = f.label :naam_rekeninghouder
 = f.text_field :bankAccountName
-%br
+
 = f.label :plaats
 = f.text_field :bankLocation

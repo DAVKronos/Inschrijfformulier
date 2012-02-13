@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-tooltip
 //= require_tree .
 //= require rails.validations
+$(document).ready(function() {
+  $('#registration_name').tooltip({delay: 200, placement: 'right', trigger: 'focus'});
+});
 

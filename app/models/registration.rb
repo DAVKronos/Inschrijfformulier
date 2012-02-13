@@ -11,14 +11,20 @@ class Registration < ActiveRecord::Base
   
   
   attr_writer :current_step
+  name_regex = /\A[A-Z][a-z]+\s([a-z]+\s([a-z]+\s)*)?[A-Z][a-z]*(-[A-Z][a-z]+)*\z/
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates_presence_of :name, :email, :if => lambda { |o| o.current_step == "general" }
+  validates_format_of :name, :with => name_regex, :if => lambda { |o| o.current_step == "general" }
+  validates_format_of :email, :with => email_regex, :if => lambda { |o| o.current_step == "general" }
   validates_presence_of :meetRegulations, :if => lambda { |o| o.current_step == "confirmation" && o.athlete? }
   validates_presence_of :bankAuthorization, :if => lambda { |o| o.current_step == "confirmation" && o.mustPay? }
   validates_presence_of :licensenumber, :study, :studentnumber, :club_id, :college_id, :birthdate, :if => lambda { |o| o.current_step =="athlete" }
   validates_presence_of :event_participations, :if => lambda { |o| o.current_step == "participation" && !o.volunteer? }
   validates_presence_of :day_ids, :if => lambda { |o| o.current_step == "participation" && !o.athlete? }
   validates_presence_of :banknumber, :bankLocation, :bankAccountName, :if => lambda { |o| o.current_step == "payment"}
+  
+  
   
   def current_step
     @current_step || steps.first

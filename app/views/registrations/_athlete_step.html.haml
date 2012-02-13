@@ -1,17 +1,18 @@
-= f.label :vereniging
-= collection_select(:registration, :club_id, Club.all, :id, :name)
-%br
-= f.label :onderwijsinstelling
-= collection_select(:registration, :college_id, College.all, :id, :name)
-%br
-= f.label :geboortedatum
-= date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year})
-%br
+%H1 Gegevens atleet
 = f.label :licentienummer_atletiekunie
 = f.text_field :licensenumber
-%br
+
+= f.label :vereniging
+= collection_select(:registration, :club_id, Club.all, :id, :name)
+
+= f.label :onderwijsinstelling
+= collection_select(:registration, :college_id, College.all, :id, :name)
+
 = f.label :studie
 = f.text_field :study
-%br
+
 = f.label :studentnummer
 = f.text_field :studentnumber
+
+= f.label :geboortedatum
+= date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year})

@@ -17,9 +17,12 @@ class RegistrationsController < ApplicationController
 
   def create
     session[:registration_params].deep_merge!(params[:registration]) if params[:registration]
+      if params[:reset_participations]
+        particNumber = session[:registration_params]["event_participations_attributes"].size - 1
+        session[:registration_params]["event_participations_attributes"].delete("#{particNumber}")
+      end
       @registration = Registration.new(session[:registration_params])
       @registration.current_step = session[:registration_step]
-      @event_participation = EventParticipation.new
       @events = Event.where("sex_id = '#{@registration.sex.id}'").select{|event| !@registration.events.include?(event)}
       @days = Day.all
       if @registration.valid?
@@ -29,6 +32,7 @@ class RegistrationsController < ApplicationController
           @registration.event_participations.build
         elsif @registration.last_step?
           @registration.save if @registration.all_valid?
+        elsif params[:reset_participations]
         else
           @registration.next_step
         end
@@ -36,12 +40,11 @@ class RegistrationsController < ApplicationController
          @registration.previous_step
      elsif params[:new_participation_button]
          @registration.event_participations.build
-     end
+     elsif params[:reset_participations]
+        @registration.event_participations.delete_all
+      end
       session[:registration_step] = @registration.current_step
-      if params[:cancel_button]
-        session[:registration_step] = session[:registration_params] = session[:participations] = nil
-        redirect_to "http://www.youtube.com/watch?v=dQw4w9WgXcQ&ob=av2e"
-      elsif @registration.new_record?
+      if @registration.new_record?
         render "new"
       else
         session[:registration_step] = session[:registration_params] = session[:participations] = nil
