@@ -9,7 +9,7 @@ gem 'pg'
 gem 'haml', '~> 3.1.4'
 gem 'authlogic', '~> 3.1.0'
 gem 'acl9', '~> 0.12.0'
-gem 'client_side_validations', '~> 3.2.0.beta.2'
+gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta1'

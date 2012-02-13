@@ -1,5 +1,5 @@
 %h1 Stap #{@registration.steps.index(@registration.current_step) + 1} van #{@registration.steps.size}
-= form_for @registration do |f| 
+= form_for @registration, :validate => true do |f| 
   = render "#{@registration.current_step}_step", :f => f
   = f.submit "Continue", :id => "continueButton"
   = f.submit "Back", :name => "back_button" unless @registration.first_step?
