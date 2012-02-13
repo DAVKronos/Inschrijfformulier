@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require blueprint/print
 */
 input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input):not(.participation), textarea {
     border: 1px solid #CCCCCC;
