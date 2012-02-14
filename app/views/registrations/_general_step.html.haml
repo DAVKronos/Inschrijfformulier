@@ -1,10 +1,10 @@
 %h1 Algemene gegevens
 %div.clearfix
   %b Naam
-  = f.text_field :name, "data-original-title" => "Pick a username (only letters, numbers, and underscores)"
+  = f.text_field :name, "data-original-title" => "Bijv. Kegel van Kronos-Uros"
 %div.clearfix
   = f.label :email_adres
-  = f.email_field :email
+  = f.email_field :email, :class => "fade", "data-original-title" =>"Bijv. kegel@kronos.nl"
 %div.clearfix
   = f.label :geslacht
   = collection_select(:registration, :sex_id, Sex.all, :id, :name)

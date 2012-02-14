@@ -13,16 +13,19 @@ class Registration < ActiveRecord::Base
   attr_writer :current_step
   name_regex = /\A[A-Z][a-z]+\s([a-z]+\s([a-z]+\s)*)?[A-Z][a-z]*(-[A-Z][a-z]+)*\z/
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  banknumber_regex = /\A\d{6,9}\z/
   
   validates_presence_of :name, :email, :if => lambda { |o| o.current_step == "general" }
   validates_format_of :name, :with => name_regex, :if => lambda { |o| o.current_step == "general" }
   validates_format_of :email, :with => email_regex, :if => lambda { |o| o.current_step == "general" }
+  validates_uniqueness_of :email, :message => "Er is al een inschrijving met dit e-mailadres", :if => lambda { |o| o.current_step == "general" }
   validates_presence_of :meetRegulations, :if => lambda { |o| o.current_step == "confirmation" && o.athlete? }
   validates_presence_of :bankAuthorization, :if => lambda { |o| o.current_step == "confirmation" && o.mustPay? }
   validates_presence_of :licensenumber, :study, :studentnumber, :club_id, :college_id, :birthdate, :if => lambda { |o| o.current_step =="athlete" }
   validates_presence_of :event_participations, :if => lambda { |o| o.current_step == "participation" && !o.volunteer? }
   validates_presence_of :day_ids, :if => lambda { |o| o.current_step == "participation" && !o.athlete? }
   validates_presence_of :banknumber, :bankLocation, :bankAccountName, :if => lambda { |o| o.current_step == "payment"}
+  validates_format_of :banknumber, :with => banknumber_regex, :message => "vul 6 tot 9 getallen in", :if => lambda { |o| o.current_step == "payment"}
   
   
   
@@ -34,7 +37,8 @@ class Registration < ActiveRecord::Base
     returnArray = %w[general participation]
     if self.athlete?
       returnArray += %w[athlete]
-    elsif self.volunteer?
+    end
+    if self.volunteer?
       returnArray += %w[volunteer]
     end
     returnArray += %w[secondaries]
@@ -59,7 +63,7 @@ class Registration < ActiveRecord::Base
     end
   end
 
-  serialized_attr_accessor :onderdeel_voorkeuren, :jureren, :materiaalploeg, :catering, :jury_algemeen, :jury_tijd, :jury_scheidsrechter, :meldbureau, :wedstrijdsec
+  serialized_attr_accessor :onderdeel_voorkeuren, :jureren, :materiaalploeg, :catering, :jury_algemeen, :jury_tijd, :jury_scheidsrechter, :meldbureau, :wedstrijdsec, :tshirtmaat
 
   def next_step
     self.current_step = steps[steps.index(current_step)+1]
@@ -126,11 +130,7 @@ class Registration < ActiveRecord::Base
   end
   
   def shirtCost
-    returnCost = 12.00
-    if self.volunteer?
-      returnCost = 0
-    end
-    returnCost
+    12.00
   end
 end
 # == Schema Information

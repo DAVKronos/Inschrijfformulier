@@ -3,8 +3,8 @@
 = f.check_box :jureren
 %br
 = f.label :onderdeel_voorkeuren
-= f.text_area :onderdeel_voorkeuren
-%br
+= f.text_area :onderdeel_voorkeuren, :rows => "2", :cols => "20"
+
 = f.label :materiaalploeg
 = f.check_box :materiaalploeg
 %br
@@ -17,7 +17,11 @@
 = f.label :wedstrijdsecretariaat
 = f.check_box :wedstrijdsec
 %br
-Ik heb de volgende jurydiploma's:
+= f.label t :shirtsize
+= f.select(:tshirtmaat, [['S', "s"], ['M', "m"], ['L', "l"], ['XL', "xl"]], {}, {:class => "select_box"})
+%br
+%br
+%h5 Ik heb de volgende jurydiploma's:
 = f.label :jurylid_algemeen
 = f.check_box :jury_algemeen
 %br

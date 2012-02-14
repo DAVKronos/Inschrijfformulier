@@ -1,5 +1,5 @@
 %H1 Gegevens atleet
-= f.label :licentienummer_atletiekunie
+= f.label :licentienummer_Atletiekunie
 = f.text_field :licensenumber
 
 = f.label :vereniging
@@ -15,4 +15,5 @@
 = f.text_field :studentnumber
 
 = f.label :geboortedatum
-= date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year})
+%div.datepicker
+  = date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year}, :class => "datepicker")

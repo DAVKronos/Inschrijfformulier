@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
 */
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    background-image:url('/assets/NSKBaanLogo5.png');
+    background-repeat: no-repeat;
+}
 input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input), textarea {
     border: 1px solid #CCCCCC;
     border-radius: 2px 2px 2px 2px;
@@ -23,16 +29,31 @@ input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="c
 }
 select {
 	display:block;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	height: auto;
 }
-#continueButton{
+
+fieldset {
+	background-color: white;
+	opacity: 0.97;
+}
+.button.registration{
     background-color: #A7E568;
     background-image: -moz-linear-gradient(center top , #C1ED94 0pt, #8EDE3D 100%);
 }
 
-input[type="submit"] {
+.button.registration:hover{
+   background-color :#9BE252;
+   background-image: -moz-linear-gradient(center top , #C1ED94 0pt, #75D810 100%);
+   border: 1px solid #848484;
+   color: #505050;
+}
+
+input.button {
     padding: 3px 9px 4px;
 }
-input[type="submit"] {
+.button {
     -moz-transition: border 0.1s linear 0s;
     background-color: #EEEEEE;
     background-image: -moz-linear-gradient(center top , white 0pt, #DDDDDD 100%);
@@ -50,9 +71,19 @@ input[type="submit"] {
     white-space: nowrap;
 }
 
-select + select { 
+.submit_field {
+    margin-top: 15px;
+}
+
+div.datepicker {
+	display:block;
+}
+.datepicker { 
 	display:inline; 
-} 
+}
+.select_box { 
+	display:inline; 
+}
 .field_with_errors {
   position: relative;
 }
@@ -67,7 +98,7 @@ select + select {
     font-size: 12px;
     left: auto;
     position: absolute;
-    right: 10px;
+    right: 205px;
     top: 4px;
 }
 
