@@ -1,8 +1,6 @@
 class EventParticipation < ActiveRecord::Base
   belongs_to :event
   belongs_to :registration
-  
-  
   validates :event_id, :uniqueness => { :scope => :registration_id }
 end
 # == Schema Information
