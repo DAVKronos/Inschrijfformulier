@@ -49,6 +49,7 @@ class RegistrationsController < ApplicationController
       else
         session[:registration_step] = session[:registration_params] = session[:participations] = nil
         flash[:notice] = "Inschrijving bevestigd!"
+        RegistrationMailer.welcome_email(@registration).deliver
         redirect_to @registration
       end
     end
