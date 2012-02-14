@@ -1,16 +1,19 @@
 - current_step = (@registration.steps.index(@registration.current_step) + 1).to_f
 - total_step = (@registration.steps.size).to_f
 - percentage = (current_step / total_step *100).to_i
-%div.span-15
-  = form_for @registration, :validate => true do |f|
-    %fieldset 
-      = render "#{@registration.current_step}_step", :f => f
-      %div.submit_field
-        = f.submit "Vorige", :name => "back_button", :class =>"button" unless @registration.first_step?
-        = f.submit "Volgende", :id => "continueButton", :class =>"registration button" unless @registration.last_step?
-        = f.submit "Opslaan", :id => "continueButton", :class =>"registration button" if @registration.last_step?
-        %br
-        %br
-        <div class="progress progress-striped">
-        <div class="bar" style="width: #{percentage}%;"></div>
-        </div>
+%div.span-24.last
+  %div{:class => "span-15", :style => "position: absolute; top: 0px; left: 630px;"}
+    = image_tag('NSKBaanLogoZonderBaan.png')
+  %div{:class => "span-15 last", :style => "position: absolute; top: 73px; left: 545px;"}
+    = form_for @registration, :validate => true do |f|
+      %fieldset 
+        = render "#{@registration.current_step}_step", :f => f
+        %div.submit_field
+          = f.submit "Vorige", :name => "back_button", :class =>"button" unless @registration.first_step?
+          = f.submit "Volgende", :id => "continueButton", :class =>"registration button" unless @registration.last_step?
+          = f.submit "Opslaan", :id => "continueButton", :class =>"registration button" if @registration.last_step?
+          %br
+          %br
+          <div class="progress progress-striped">
+          <div class="bar" style="width: #{percentage}%;"></div>
+          </div>

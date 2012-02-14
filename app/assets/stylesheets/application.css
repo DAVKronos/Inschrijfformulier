@@ -14,8 +14,6 @@
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 13px;
-    background-image:url('/assets/NSKBaanLogo5.png');
-    background-repeat: no-repeat;
 }
 input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input), textarea {
     border: 1px solid #CCCCCC;
