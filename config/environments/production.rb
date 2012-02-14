@@ -49,8 +49,9 @@ Inschrijfformulier::Application.configure do
   config.assets.precompile += %w( blueprint/screen.css blueprint/print.css blueprint/ie.css)
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
   # Enable threaded mode
   # config.threadsafe!
 
