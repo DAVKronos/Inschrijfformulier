@@ -2,9 +2,17 @@
 - total_step = (@registration.steps.size).to_f
 - percentage = (current_step / total_step *100).to_i
 %div.span-24.last
-  %div{:class => "span-15", :style => "position: absolute; top: 0px; left: 630px;"}
-    = image_tag('NSKBaanLogoZonderBaan.png')
-  %div{:class => "span-15 last", :style => "position: absolute; top: 73px; left: 545px;"}
+  %div.span-24.last
+    = image_tag('NSKBaanLogoZonderBaan.png', :id => "registration_image")
+  %div.span-5.banners
+    %h6 Onze sponsoren
+    = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
+    = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
+    = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
+    = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
+    = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
+    = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
+  %div{:class => "span-12", :id => "registration_form"}
     = form_for @registration, :validate => true do |f|
       %fieldset 
         = render "#{@registration.current_step}_step", :f => f
@@ -17,3 +25,11 @@
           <div class="progress progress-striped">
           <div class="bar" style="width: #{percentage}%;"></div>
           </div>
+  %div.span-5.banners.last
+    %h6 Onze sponsoren
+    = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
+    = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
+    = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
+    = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
+    = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
+    = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
