@@ -6,5 +6,8 @@
   = f.label :email_adres
   = f.email_field :email, :class => "fade", "data-original-title" =>"Bijv. kegel@kronos.nl"
 %div.clearfix
+  = f.label :password
+  = f.password_field :password, :class => "fade", "data-original-title" =>"Bijv. ikhouvankronos"
+%div.clearfix
   = f.label :geslacht
   = collection_select(:registration, :sex_id, Sex.all, :id, :name)

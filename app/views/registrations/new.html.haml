@@ -22,9 +22,6 @@
           = f.submit "Opslaan", :id => "continueButton", :class =>"registration button" if @registration.last_step?
           %br
           %br
-          <div class="progress progress-striped">
-          <div class="bar" style="width: #{percentage}%;"></div>
-          </div>
   %div.span-5.banners.last
     %h6 Onze sponsoren
     = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"

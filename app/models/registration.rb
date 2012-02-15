@@ -15,7 +15,7 @@ class Registration < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   banknumber_regex = /\A\d{6,9}\z/
   
-  validates_presence_of :name, :email, :if => lambda { |o| o.current_step == "general" }
+  validates_presence_of :name, :email, :password, :if => lambda { |o| o.current_step == "general" }
   validates_format_of :name, :with => name_regex, :if => lambda { |o| o.current_step == "general" }
   validates_format_of :email, :with => email_regex, :if => lambda { |o| o.current_step == "general" }
   validates_uniqueness_of :email, :message => "Er is al een inschrijving met dit e-mailadres", :if => lambda { |o| o.current_step == "general" }
@@ -26,6 +26,11 @@ class Registration < ActiveRecord::Base
   validates_presence_of :day_ids, :if => lambda { |o| o.current_step == "participation" && !o.athlete? }
   validates_presence_of :banknumber, :bankLocation, :bankAccountName, :if => lambda { |o| o.current_step == "payment"}
   validates_format_of :banknumber, :with => banknumber_regex, :message => "vul 6 tot 9 getallen in", :if => lambda { |o| o.current_step == "payment"}
+  
+  acts_as_authentic do |config|
+      config.crypto_provider = Authlogic::CryptoProviders::Sha512
+      config.validate_password_field = false 
+    end
   
   
   
