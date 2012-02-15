@@ -1,4 +1,12 @@
 class RegistrationsController < ApplicationController
+  access_control do
+          actions :edit, :update do
+            allow logged_in, :if => :registration_current_registration?
+          end
+          actions :new, :index, :create do
+            allow all
+          end
+      end
   def index
     @registrations = Registration.all
   end
@@ -10,7 +18,6 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(session[:registration_params])
     @registration.current_step = session[:registration_step]
     @event_participations = @registration.events
-    @event_participation = EventParticipation.new
     @events = Event.all
     @days = Day.all
   end
@@ -56,16 +63,43 @@ class RegistrationsController < ApplicationController
   
   def edit
     @registration = Registration.find(params[:id])
+    @registration.current_step = session[:registration_step]
+    @events = Event.where("sex_id = '#{@registration.sex.id}'")
+    @event_participations = @registration.events
+    render'new'
   end
 
   def update
-    registration = Registration.find(params[:id])
-    if registration.update_attributes(params[:registration])
-      flash[:success] = "Inschrijving geupdated."
-      redirect_to registration
-    else
-      render 'edit'
+    @registration = Registration.find(params[:id])
+    @registration.current_step = session[:registration_step]
+    @events = Event.where("sex_id = '#{@registration.sex.id}'")
+    @days = Day.all
+    if params[:new_participation_button]
+      @registration.event_participations.build
     end
+    if @registration.update_attributes(params[:registration])
+      if params[:back_button]
+        @registration.previous_step
+        session[:registration_step] = @registration.current_step
+      elsif params[:new_participation_button]
+      elsif params[:reset_participations]
+      elsif @registration.last_step?
+        last_step = true;
+      else
+        @registration.next_step
+        session[:registration_step] = @registration.current_step
+      end
+      if last_step
+        session[:registration_step] = session[:registration_params] = session[:participations] = nil
+        @registration.registration_session.destroy
+        flash[:success] = "Inschrijving geupdated."
+        redirect_to :root
+      else
+        render 'new' unless last_step
+      end
+  else
+    render 'new'
+  end
   end
 
   def show
@@ -79,4 +113,10 @@ class RegistrationsController < ApplicationController
     flash[:success] = "Inschrijving verwijderd"
       redirect_to registrations_path
   end
+  
+  private
+      def registration_current_registration?
+        @registration = Registration.find(params[:id])
+        current_registration?(@registration)
+      end
 end

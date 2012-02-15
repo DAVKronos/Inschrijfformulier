@@ -1,0 +1,14 @@
+%h1 Login
+
+%div#login
+  =form_for @registration_session, :url => registration_session_path do |f|
+    %br
+    = f.label :email_adres
+    = f.text_field :email
+    = f.label :password
+    = f.password_field :password
+    = f.label :remember_me
+    = f.check_box :remember_me 
+    %br
+    %br
+    = f.submit "Login"

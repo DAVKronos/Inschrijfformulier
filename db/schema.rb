@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214182948) do
+ActiveRecord::Schema.define(:version => 20120215175120) do
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20120214182948) do
     t.boolean  "party"
     t.string   "shirtsize"
     t.string   "volunteerPreferences"
-    t.string   "crypted_password"
-    t.string   "password_salt"
+    t.string   "crypted_password",     :null => false
+    t.string   "password_salt",        :null => false
     t.string   "persistence_token",    :null => false
     t.string   "single_access_token",  :null => false
     t.string   "perishable_token",     :null => false
@@ -85,6 +85,21 @@ ActiveRecord::Schema.define(:version => 20120214182948) do
   add_index "registrations", ["club_id"], :name => "index_registrations_on_club_id"
   add_index "registrations", ["college_id"], :name => "index_registrations_on_college_id"
   add_index "registrations", ["sex_id"], :name => "index_registrations_on_sex_id"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",              :limit => 40
+    t.string   "authorizable_type", :limit => 40
+    t.integer  "authorizable_id"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "roles_registrations", :id => false, :force => true do |t|
+    t.integer  "registration_id"
+    t.integer  "role_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "sexes", :force => true do |t|
     t.string   "name"

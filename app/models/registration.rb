@@ -8,6 +8,7 @@ class Registration < ActiveRecord::Base
   has_many :volunteer_days, :dependent => :destroy
   has_many :days, :through => :volunteer_days
   accepts_nested_attributes_for :event_participations
+  validates_associated :event_participations
   
   
   attr_writer :current_step
@@ -31,6 +32,9 @@ class Registration < ActiveRecord::Base
       config.crypto_provider = Authlogic::CryptoProviders::Sha512
       config.validate_password_field = false 
     end
+    
+  acts_as_authorization_subject  :association_name => :roles, :join_table_name => :roles_registrations
+  acts_as_authorization_object join_table_name: "roles_registrations"
   
   
   

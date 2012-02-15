@@ -1,8 +1,3 @@
-<script type="text/javascript" language="javascript">
-$(document).ready(function() {
-window.location.hash="onderdeel#{@registration.event_participations.size}";}
-});
-</script>
 %h1 Deelname gegevens
 - event_counter = 1
 =f.fields_for :event_participations do |p|
@@ -21,7 +16,7 @@ window.location.hash="onderdeel#{@registration.event_participations.size}";}
 %br
 = f.submit "Voeg een onderdeel toe", :name => "new_participation_button", :class =>"button" if f.object.athlete?
 = f.submit "Ik wil graag aan een onderdeel deelnemen", :name => "new_participation_button", :class =>"button" if !f.object.athlete?
-= f.submit "Verwijder een onderdeel", :name => "reset_participations", :class =>"button" if f.object.athlete?
+= f.submit "Verwijder een onderdeel", :name => "reset_participations", :class =>"button" if f.object.athlete? && params[:action]!="update" 
 %br
 
 %p 
