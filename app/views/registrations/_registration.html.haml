@@ -16,11 +16,12 @@
       Atletiekvereniging:
       = registration.club.name
       %li
-      Onderwijsinstelling:
-      = registration.college.name
+        Onderwijsinstelling:
+        = registration.college.name
     - if false
       %li
       = link_to 'verwijder', registration, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{registration.name}"
   - if registration.athlete?
-    Onderdeel gegevens:
+    %li
+      Onderdeel gegevens:
   = render registration.event_participations

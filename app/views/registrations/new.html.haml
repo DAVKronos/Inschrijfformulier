@@ -4,13 +4,7 @@
       = image_tag('NSKBaanLogoZonderBaan.png', :id => "registration_image")
   %div.row
     %div.span2.banners
-      %h6 Onze sponsoren
-      = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
-      = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
-      = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
-      = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
-      = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
-      = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
+      = render 'banners'
     %div{:class => "span7", :id => "registration_form"}
       = form_for @registration, :validate => true do |f|
         %fieldset
@@ -22,10 +16,4 @@
             %br
             %br
     %div.span2.banners.last
-      %h6 Onze sponsoren
-      = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
-      = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
-      = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
-      = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
-      = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
-      = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
+      = render 'banners'
