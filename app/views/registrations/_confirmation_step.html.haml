@@ -1,14 +1,15 @@
 %h1 Overzicht
 %h5 Controleer a.u.b. je gegevens
 = render @registration
-%h5 Als je gegevens kloppen moet je hier nog even wat goedkeuren
+%br
 - if f.object.mustPay?
-  = f.label "Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @registration.totalCost} van mijn rekening af te schrijven"
-  = f.check_box :bankAuthorization, :validate => false
-  %br
+  %label.checkbox
+    = f.check_box :bankAuthorization, :validate => false
+    Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @registration.totalCost} van mijn rekening af te schrijven
 - if f.object.athlete?
-  = f.label :ik_ga_akkoord_met_het_wedstrijdreglement
-  = f.check_box :meetRegulations, :validate => false
-  %br
-= f.label :mijn_emailadres_mag_worden_opgenomen_in_de_ZeuS_database
-= f.check_box :zeusDatabase
+  %label.checkbox
+    = f.check_box :meetRegulations, :validate => false
+    Ik ga akkoord met het wedstrijdreglement
+  %label.checkbox
+    = f.check_box :zeusDatabase
+    Mijn e-mailadres mag worden opgenomen in de Z.E.U.S. database

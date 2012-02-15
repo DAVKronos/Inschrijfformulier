@@ -1,32 +1,41 @@
 %h1 Gegevens vrijwilliger
-= f.label :jureren
-= f.check_box :jureren
-%br
+%h4 Ik heb een voorkeur voor een of meerdere van de volgende taken:
+%label.checkbox
+  = f.check_box :jureren
+  = :Jureren
+
 = f.label :onderdeel_voorkeuren
 = f.text_area :onderdeel_voorkeuren, :rows => "2", :cols => "20"
+%br
 
-= f.label :materiaalploeg
-= f.check_box :materiaalploeg
-%br
-= f.label :catering
-= f.check_box :catering
-%br
-= f.label :meldbureau
-= f.check_box :meldbureau
-%br
-= f.label :wedstrijdsecretariaat
-= f.check_box :wedstrijdsec
-%br
+%label.checkbox
+  = f.check_box :materiaalploeg
+  = :Materiaalploeg
+
+%label.checkbox
+  = f.check_box :catering
+  = :Catering
+
+%label.checkbox
+  = f.check_box :meldbureau
+  = :Meldbureau
+
+%label.checkbox
+  = f.check_box :wedstrijdsec
+  = :Wedstrijdsecretariaat
+
 = f.label t :shirtsize
 = f.select(:tshirtmaat, [['S', "s"], ['M', "m"], ['L', "l"], ['XL', "xl"]], {}, {:class => "select_box"})
-%br
-%br
-%h5 Ik heb de volgende jurydiploma's:
-= f.label :jurylid_algemeen
-= f.check_box :jury_algemeen
-%br
-= f.label :jurylid_tijd
-= f.check_box :jury_tijd
-%br
-= f.label :jurylid_scheidsrechter
-= f.check_box :jury_scheidsrechter
+
+%h4 Ik heb de volgende jurydiploma's:
+%label.checkbox
+  = f.check_box :jury_algemeen
+  Jurylid algemeen
+
+%label.checkbox
+  = f.check_box :jury_tijd
+  Jury tijd
+
+%label.checkbox
+  = f.check_box :jury_scheidsrechter
+  Scheidsrechter

@@ -1,6 +1,3 @@
-- current_step = (@registration.steps.index(@registration.current_step) + 1).to_f
-- total_step = (@registration.steps.size).to_f
-- percentage = (current_step / total_step *100).to_i
 %div.span12.last
   %div.row
     %div.span12.last
@@ -14,9 +11,9 @@
       = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
       = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
       = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
-    %div{:class => "span-12", :id => "registration_form"}
+    %div{:class => "span7", :id => "registration_form"}
       = form_for @registration, :validate => true do |f|
-        %fieldset 
+        %fieldset
           = render "#{@registration.current_step}_step", :f => f
           %div.submit_field
             = f.submit "Vorige", :name => "back_button", :class =>"button" unless @registration.first_step?

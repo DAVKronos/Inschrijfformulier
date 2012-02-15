@@ -1,29 +1,36 @@
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+window.location.hash="onderdeel#{@registration.event_participations.size}";}
+});
+</script>
 %h1 Deelname gegevens
 - event_counter = 1
 =f.fields_for :event_participations do |p|
-  %fieldset
-    = p.label "onderdeel #{event_counter}"
+  %div.well
+    %a{:name => "onderdeel#{event_counter}"}
+    %h4 Onderdeel #{event_counter}
     = p.collection_select(:event_id, @events, :id, :name)
     = p.label :beste_prestatie
     = p.text_field :best_performance, :class => "participation"
     = p.label :plaats
     = p.text_field :best_location, :class => "participation"
     = p.label :datum
-    %div.datepicker
+    %div.form-horizontal
       = p.date_select(:best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year}, :class => "datepicker")
   - event_counter += 1
 %br
 = f.submit "Voeg een onderdeel toe", :name => "new_participation_button", :class =>"button" if f.object.athlete?
-= f.submit "Ik doe liever aan een onderdeel mee", :name => "new_participation_button", :class =>"button" if !f.object.athlete?
+= f.submit "Ik wil graag aan een onderdeel deelnemen", :name => "new_participation_button", :class =>"button" if !f.object.athlete?
 = f.submit "Verwijder een onderdeel", :name => "reset_participations", :class =>"button" if f.object.athlete?
 %br
 
 %p 
-  %h5 Op de volgende dagen wil ik meehelpen als vrijwilliger/jurylid:
+  %h4 Op de volgende dagen wil ik meehelpen als vrijwilliger/jurylid:
   <input type="hidden" value="" name="registration[day_ids][]">
   - Day.all.each_with_index do |day,i|
     - unless i==0
       %br
     = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
-    = f.label l day.date, :format => :xlong
+    = l day.date, :format => :xlong
+    
 

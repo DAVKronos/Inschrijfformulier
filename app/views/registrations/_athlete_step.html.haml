@@ -15,5 +15,5 @@
 = f.text_field :studentnumber
 
 = f.label :geboortedatum
-%div.datepicker
+%div.form-horizontal
   = date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year}, :class => "datepicker")

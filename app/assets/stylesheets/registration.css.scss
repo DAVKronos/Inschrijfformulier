@@ -2,30 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 13px;
     background: none repeat scroll 0 0 #F5F6F7;
 }
-input:not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="checkbox"]):not(.as-input), textarea {
-    border: 1px solid #CCCCCC;
-    border-radius: 2px 2px 2px 2px;
-    display: block;
-    font-family: "Arial","Helvetica",sans-serif;
-    font-size: 14px;
-    height: auto;
-    margin-top: 1px;
-    padding: 0.3em;
-}
-select {
-	display:block;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 13px;
-	height: auto;
+
+h1 {
+	margin: 0 0 10px;
 }
 
 fieldset {
 	background-color: white;
 	opacity: 0.97;
+	padding: 0.7em 1.4em 1.4em 1.4em;
+	margin:0 0 1.5em 0;
+	border:1px solid #ccc;
 }
 .button.registration{
     background-color: #A7E568;
@@ -41,6 +30,7 @@ fieldset {
 
 input.button {
     padding: 3px 9px 4px;
+    font-size: 14px;
 }
 .button {
     -moz-transition: border 0.1s linear 0s;
@@ -64,11 +54,8 @@ input.button {
     margin-top: 15px;
 }
 
-div.datepicker {
-	display:block;
-}
 .datepicker { 
-	display:inline; 
+	width: 100px;
 }
 .select_box { 
 	display:inline; 
@@ -87,7 +74,7 @@ div.datepicker {
     font-size: 12px;
     left: auto;
     position: absolute;
-    right: 85px;
+    left: 230px;
     top: 4px;
 }
 
