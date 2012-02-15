@@ -1,13 +1,12 @@
 %h1 Algemene gegevens
-%div.clearfix
-  %b Naam
-  = f.text_field :name, "data-original-title" => "Bijv. Kegel van Kronos-Uros"
-%div.clearfix
-  = f.label :email_adres
-  = f.email_field :email, :class => "fade", "data-original-title" =>"Bijv. kegel@kronos.nl"
-%div.clearfix
-  = f.label :password
-  = f.password_field :password, :class => "fade", "data-original-title" =>"Bijv. ikhouvankronos"
-%div.clearfix
-  = f.label :geslacht
-  = collection_select(:registration, :sex_id, Sex.all, :id, :name)
+= f.label :naam
+= f.text_field :name, "data-original-title" => "Bijv. Kegel van Kronos-Uros"
+
+= f.label :email_adres
+= f.email_field :email, "data-original-title" =>"Bijv. kegel@kronos.nl"
+
+= f.label :password
+= f.password_field :password, "data-original-title" =>"Bijv. ikhouvankronos"
+
+= f.label :geslacht
+= collection_select(:registration, :sex_id, Sex.all, :id, :name)

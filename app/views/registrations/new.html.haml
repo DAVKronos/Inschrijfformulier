@@ -1,32 +1,34 @@
 - current_step = (@registration.steps.index(@registration.current_step) + 1).to_f
 - total_step = (@registration.steps.size).to_f
 - percentage = (current_step / total_step *100).to_i
-%div.span-24.last
-  %div.span-24.last
-    = image_tag('NSKBaanLogoZonderBaan.png', :id => "registration_image")
-  %div.span-5.banners
-    %h6 Onze sponsoren
-    = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
-    = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
-    = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
-    = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
-    = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
-    = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
-  %div{:class => "span-12", :id => "registration_form"}
-    = form_for @registration, :validate => true do |f|
-      %fieldset 
-        = render "#{@registration.current_step}_step", :f => f
-        %div.submit_field
-          = f.submit "Vorige", :name => "back_button", :class =>"button" unless @registration.first_step?
-          = f.submit "Volgende", :id => "continueButton", :class =>"registration button" unless @registration.last_step?
-          = f.submit "Opslaan", :id => "continueButton", :class =>"registration button" if @registration.last_step?
-          %br
-          %br
-  %div.span-5.banners.last
-    %h6 Onze sponsoren
-    = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
-    = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
-    = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
-    = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
-    = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
-    = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
+%div.span12.last
+  %div.row
+    %div.span12.last
+      = image_tag('NSKBaanLogoZonderBaan.png', :id => "registration_image")
+  %div.row
+    %div.span2.banners
+      %h6 Onze sponsoren
+      = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
+      = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
+      = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
+      = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
+      = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
+      = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
+    %div{:class => "span-12", :id => "registration_form"}
+      = form_for @registration, :validate => true do |f|
+        %fieldset 
+          = render "#{@registration.current_step}_step", :f => f
+          %div.submit_field
+            = f.submit "Vorige", :name => "back_button", :class =>"button" unless @registration.first_step?
+            = f.submit "Volgende", :id => "continueButton", :class =>"registration button" unless @registration.last_step?
+            = f.submit "Opslaan", :id => "continueButton", :class =>"registration button" if @registration.last_step?
+            %br
+            %br
+    %div.span2.banners.last
+      %h6 Onze sponsoren
+      = link_to image_tag('sauconylogo.jpg', :class => "banner"), "http://www.saucony.nl",:target => "_blank"
+      = link_to image_tag('RunninCenterLogo.png', :class => "banner"), "http://www.runenschede.nl/", :target => "_blank"
+      = link_to image_tag('SR logo.png', :class => "banner"), "http://www.sportraadut.nl/", :target => "_blank"
+      = link_to image_tag('ZeuS logo.png', :class => "banner"), "http://www.studentenatletiek.nl/", :target => "_blank"
+      = link_to image_tag('ssn_logo_passend.png', :class => "banner"), "http://www.studentensport.nl/", :target => "_blank"
+      = link_to image_tag('Logo UT fonds.png', :class => "banner"), "http://www.utwente.nl/ufonds/",:target => "_blank"
