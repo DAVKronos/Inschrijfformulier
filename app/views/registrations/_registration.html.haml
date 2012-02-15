@@ -1,11 +1,26 @@
-%ul
+%ul.registration
   %li
+    Naam:
     = registration.name
   %li
+    Emailadres:
+    = registration.email
+  %li
+    Geslacht:
     = registration.sex.name
-  %li
-    = registration.club.name if registration.athlete?
-  %li
-    = registration.college.name if registration.athlete?
-  %li
-    = link_to 'verwijder', registration, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{registration.name}"
+  - if registration.athlete?
+    %li
+      Geboortedatum:
+      = l registration.birthdate
+    %li
+      Atletiekvereniging:
+      = registration.club.name
+      %li
+      Onderwijsinstelling:
+      = registration.college.name
+    - if false
+      %li
+      = link_to 'verwijder', registration, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{registration.name}"
+  - if registration.athlete?
+    Onderdeel gegevens:
+  = render registration.event_participations

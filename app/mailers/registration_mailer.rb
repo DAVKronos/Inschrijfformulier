@@ -3,7 +3,7 @@ class RegistrationMailer < ActionMailer::Base
   
   def welcome_email(user)
       @user = user
-      @url  = "http://example.com/login"
-      mail(:to => user.email, :subject => "Welcome to My Awesome Site")
+      @url  = "https://inschrijven.kronos.nl"
+      mail(:to => user.email, :subject => "#{@user.name.split[0]}")
     end
 end
