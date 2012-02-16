@@ -19,3 +19,5 @@
 
 # Ignore asset cache
 public/assets/
+
+config/initializers/omniauth.rb
