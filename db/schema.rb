@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120216154102) do
     t.boolean  "party"
     t.string   "shirtsize"
     t.string   "volunteerPreferences"
+    t.string   "auth_hash"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "study"

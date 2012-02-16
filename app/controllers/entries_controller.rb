@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_filter :authenticate_participant!
-  
+   
   def index
     @entries = Entry.all
   end
@@ -50,6 +50,10 @@ class EntriesController < ApplicationController
       else
         session[:entry_step] = session[:entry_params] = session[:participations] = nil
         flash[:notice] = "Inschrijving bevestigd!"
+        
+        api_key = '256299867780027'
+        api_secret = '75fb17fe91a45b35483bcc4695232df8'
+        @entry.participant.publish("Ik heb me zojuist ingeschreven voor het NSK Baan!", :facebook, session[:omniauth][:credentials][:token])
         EntryMailer.welcome_email(@entry).deliver
         redirect_to @entry
       end

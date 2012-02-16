@@ -8,7 +8,8 @@ gem 'rails', '3.2.1'
 gem 'pg'
 gem 'haml', '~> 3.1.4'
 gem 'devise'
-gem 'omniauth-facebook' 
+gem 'omniauth-facebook'
+gem "fb_graph", "~> 2.4.0"
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 group :development do

@@ -19,7 +19,8 @@ class CreateEntries < ActiveRecord::Migration
       t.boolean :diner
       t.boolean :party
       t.string :shirtsize
-      t.string :volunteerPreferences     
+      t.string :volunteerPreferences
+      t.string :auth_hash     
       
 
       t.timestamps
