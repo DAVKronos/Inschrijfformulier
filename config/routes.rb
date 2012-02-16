@@ -1,8 +1,8 @@
 Inschrijfformulier::Application.routes.draw do
+ # resources :registrations
   devise_for :participants
 
   resources :events
-  resources :registrations
   resources :clubs
   resources :colleges
   resources :sexes

@@ -99,36 +99,11 @@ ActiveRecord::Schema.define(:version => 20120216121400) do
   add_index "registrations", ["college_id"], :name => "index_registrations_on_college_id"
   add_index "registrations", ["sex_id"], :name => "index_registrations_on_sex_id"
 
-  create_table "roles", :force => true do |t|
-    t.string   "name",              :limit => 40
-    t.string   "authorizable_type", :limit => 40
-    t.integer  "authorizable_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-  end
-
-  create_table "roles_registrations", :id => false, :force => true do |t|
-    t.integer  "registration_id"
-    t.integer  "role_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "sexes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "user_sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "user_sessions", ["session_id"], :name => "index_user_sessions_on_session_id"
-  add_index "user_sessions", ["updated_at"], :name => "index_user_sessions_on_updated_at"
 
   create_table "volunteer_days", :force => true do |t|
     t.integer  "day_id"

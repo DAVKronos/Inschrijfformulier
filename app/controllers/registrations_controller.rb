@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
     session[:registration_params] ||= {}
     session[:participations] ||= []
     session[:volunteer_days] ||= {}
-    @registration = Registration.new(session[:registration_params])
+    @registration = current_participant.registration.build(session[:registration_params])
     @registration.current_step = session[:registration_step]
     @event_participations = @registration.events
     @events = Event.all
@@ -22,7 +22,7 @@ class RegistrationsController < ApplicationController
         particNumber = session[:registration_params]["event_participations_attributes"].size - 1
         session[:registration_params]["event_participations_attributes"].delete("#{particNumber}")
       end
-      @registration = Registration.new(session[:registration_params])
+      @registration = current_participant.registration.build(session[:registration_params])
       @registration.current_step = session[:registration_step]
       @events = Event.where("sex_id = '#{@registration.sex.id}'").select{|event| !@registration.events.include?(event)}
       @days = Day.all
