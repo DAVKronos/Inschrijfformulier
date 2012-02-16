@@ -2,11 +2,5 @@
 = f.label :naam
 = f.text_field :name, "data-original-title" => "Bijv. Kegel van Kronos-Uros"
 
-= f.label :email_adres
-= f.email_field :email, "data-original-title" =>"Bijv. kegel@kronos.nl"
-
-= f.label :wachtwoord
-= f.password_field :password, "data-original-title" =>"Bijv. ikhouvankronos"
-
 = f.label :geslacht
 = collection_select(:registration, :sex_id, Sex.all, :id, :name)

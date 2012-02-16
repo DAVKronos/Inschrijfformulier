@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215175120) do
+ActiveRecord::Schema.define(:version => 20120216121400) do
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(:version => 20120215175120) do
 
   add_index "events", ["sex_id"], :name => "index_events_on_sex_id"
 
+  create_table "participants", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "participants", ["email"], :name => "index_participants_on_email", :unique => true
+  add_index "participants", ["reset_password_token"], :name => "index_participants_on_reset_password_token", :unique => true
+
   create_table "registrations", :force => true do |t|
     t.string   "name"
     t.date     "birthdate"
@@ -60,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20120215175120) do
     t.integer  "club_id"
     t.string   "licensenumber"
     t.integer  "college_id"
+    t.integer  "participant_id"
     t.string   "studentnumber"
-    t.string   "email"
     t.string   "banknumber"
     t.string   "bankAccountName"
     t.string   "bankLocation"
@@ -72,11 +90,6 @@ ActiveRecord::Schema.define(:version => 20120215175120) do
     t.boolean  "party"
     t.string   "shirtsize"
     t.string   "volunteerPreferences"
-    t.string   "crypted_password",     :null => false
-    t.string   "password_salt",        :null => false
-    t.string   "persistence_token",    :null => false
-    t.string   "single_access_token",  :null => false
-    t.string   "perishable_token",     :null => false
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "study"

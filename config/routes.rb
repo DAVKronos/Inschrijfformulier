@@ -1,4 +1,6 @@
 Inschrijfformulier::Application.routes.draw do
+  devise_for :participants
+
   resources :events
   resources :registrations
   resources :clubs
@@ -7,10 +9,6 @@ Inschrijfformulier::Application.routes.draw do
   resources :days
   
   root :to => 'registrations#index'
-  
-  match '/signin', :to => 'registration_sessions#new'
-  match '/signout', :to => 'registration_sessions#destroy'
-  resource :registration_session
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -7,8 +7,7 @@ gem 'rails', '3.2.1'
 
 gem 'pg'
 gem 'haml', '~> 3.1.4'
-gem 'authlogic', '~> 3.1.0'
-gem 'acl9', '~> 0.12.0'
+gem 'devise'
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 group :development do

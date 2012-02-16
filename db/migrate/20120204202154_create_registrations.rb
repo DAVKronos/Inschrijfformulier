@@ -8,8 +8,8 @@ class CreateRegistrations < ActiveRecord::Migration
       t.string :licensenumber
       t.references :college
       t.references :study
+      t.references :participant
       t.string :studentnumber
-      t.string :email
       t.string :banknumber
       t.string :bankAccountName
       t.string :bankLocation
@@ -19,12 +19,7 @@ class CreateRegistrations < ActiveRecord::Migration
       t.boolean :diner
       t.boolean :party
       t.string :shirtsize
-      t.string :volunteerPreferences
-      t.string    :crypted_password,    :null => false
-      t.string    :password_salt,       :null => false                
-      t.string    :persistence_token,   :null => false                
-      t.string    :single_access_token, :null => false               
-      t.string    :perishable_token,    :null => false                
+      t.string :volunteerPreferences     
       
 
       t.timestamps

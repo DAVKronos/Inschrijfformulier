@@ -1,12 +1,6 @@
 class RegistrationsController < ApplicationController
-  access_control do
-          actions :edit, :update do
-            allow logged_in, :if => :registration_current_registration?
-          end
-          actions :new, :index, :create do
-            allow all
-          end
-      end
+  before_filter :authenticate_participant!, :only => "new"
+  
   def index
     @registrations = Registration.all
   end
