@@ -1,0 +1,19 @@
+%div.span12.last
+  %div.row
+    %div.span12.last
+      = image_tag('NSKBaanLogoZonderBaan.png', :id => "entry_image")
+  %div.row
+    %div.span2.banners
+      = render 'banners'
+    %div{:class => "span7", :id => "entry_form"}
+      = form_for @entry, :validate => true do |f|
+        %fieldset
+          = render "#{@entry.current_step}_step", :f => f
+          %div.submit_field
+            = f.submit "Vorige", :name => "back_button", :class =>"button" unless @entry.first_step?
+            = f.submit "Volgende", :id => "continueButton", :class =>"entry button" unless @entry.last_step?
+            = f.submit "Opslaan", :id => "continueButton", :class =>"entry button" if @entry.last_step?
+            %br
+            %br
+    %div.span2.banners.last
+      = render 'banners'

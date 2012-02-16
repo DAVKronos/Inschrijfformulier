@@ -1,6 +1,6 @@
-class CreateRegistrations < ActiveRecord::Migration
+class CreateEntries < ActiveRecord::Migration
   def change
-    create_table :registrations do |t|
+    create_table :entries do |t|
       t.string :name
       t.date :birthdate
       t.references :sex
@@ -24,9 +24,9 @@ class CreateRegistrations < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :registrations, :sex_id
-    add_index :registrations, :club_id
-    add_index :registrations, :college_id
-    add_index :registrations, :study_id
+    add_index :entries, :sex_id
+    add_index :entries, :club_id
+    add_index :entries, :college_id
+    add_index :entries, :study_id
   end
 end

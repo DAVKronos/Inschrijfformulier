@@ -1,4 +1,4 @@
-class RegistrationMailer < ActionMailer::Base
+class EntryMailer < ActionMailer::Base
   default from: "kegel@kronos.nl"
   
   def welcome_email(user)

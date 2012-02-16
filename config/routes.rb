@@ -1,14 +1,13 @@
 Inschrijfformulier::Application.routes.draw do
- # resources :registrations
   devise_for :participants
-
+  resources :entries
   resources :events
   resources :clubs
   resources :colleges
   resources :sexes
   resources :days
   
-  root :to => 'registrations#index'
+  root :to => 'entries#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

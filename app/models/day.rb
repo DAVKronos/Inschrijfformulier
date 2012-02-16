@@ -1,6 +1,6 @@
 class Day < ActiveRecord::Base
   has_many :volunteer_days
-  has_many :registrations, :through => :volunteer_days 
+  has_many :entries, :through => :volunteer_days 
 end
 # == Schema Information
 #

@@ -21,11 +21,11 @@
 
 %p 
   %h4 Op de volgende dagen wil ik meehelpen als vrijwilliger/jurylid:
-  <input type="hidden" value="" name="registration[day_ids][]">
+  <input type="hidden" value="" name="entry[day_ids][]">
   - Day.all.each_with_index do |day,i|
     - unless i==0
       %br
-    = check_box_tag "registration[day_ids][]", day.id, @registration.days.include?(day)
+    = check_box_tag "entry[day_ids][]", day.id, @entry.days.include?(day)
     = l day.date, :format => :xlong
     
 

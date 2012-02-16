@@ -1,11 +1,11 @@
 %h1 Overzicht
 %h5 Controleer a.u.b. je gegevens
-= render @registration
+= render @entry
 %br
 - if f.object.mustPay?
   %label.checkbox
     = f.check_box :bankAuthorization, :validate => false
-    Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @registration.totalCost} van mijn rekening af te schrijven
+    Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @entry.totalCost} van mijn rekening af te schrijven
 - if f.object.athlete?
   %label.checkbox
     = f.check_box :meetRegulations, :validate => false

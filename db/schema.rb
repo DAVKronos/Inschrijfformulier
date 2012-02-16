@@ -31,9 +31,37 @@ ActiveRecord::Schema.define(:version => 20120216121400) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "entries", :force => true do |t|
+    t.string   "name"
+    t.date     "birthdate"
+    t.integer  "sex_id"
+    t.integer  "club_id"
+    t.string   "licensenumber"
+    t.integer  "college_id"
+    t.integer  "participant_id"
+    t.string   "studentnumber"
+    t.string   "banknumber"
+    t.string   "bankAccountName"
+    t.string   "bankLocation"
+    t.boolean  "bankAuthorization"
+    t.boolean  "meetRegulations"
+    t.boolean  "zeusDatabase"
+    t.boolean  "diner"
+    t.boolean  "party"
+    t.string   "shirtsize"
+    t.string   "volunteerPreferences"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "study"
+  end
+
+  add_index "entries", ["club_id"], :name => "index_entries_on_club_id"
+  add_index "entries", ["college_id"], :name => "index_entries_on_college_id"
+  add_index "entries", ["sex_id"], :name => "index_entries_on_sex_id"
+
   create_table "event_participations", :force => true do |t|
     t.integer  "event_id"
-    t.integer  "registration_id"
+    t.integer  "entry_id"
     t.string   "best_performance"
     t.date     "best_date"
     t.string   "best_location"
@@ -41,8 +69,8 @@ ActiveRecord::Schema.define(:version => 20120216121400) do
     t.datetime "updated_at",       :null => false
   end
 
+  add_index "event_participations", ["entry_id"], :name => "index_event_participations_on_entry_id"
   add_index "event_participations", ["event_id"], :name => "index_event_participations_on_event_id"
-  add_index "event_participations", ["registration_id"], :name => "index_event_participations_on_registration_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -71,34 +99,6 @@ ActiveRecord::Schema.define(:version => 20120216121400) do
   add_index "participants", ["email"], :name => "index_participants_on_email", :unique => true
   add_index "participants", ["reset_password_token"], :name => "index_participants_on_reset_password_token", :unique => true
 
-  create_table "registrations", :force => true do |t|
-    t.string   "name"
-    t.date     "birthdate"
-    t.integer  "sex_id"
-    t.integer  "club_id"
-    t.string   "licensenumber"
-    t.integer  "college_id"
-    t.integer  "participant_id"
-    t.string   "studentnumber"
-    t.string   "banknumber"
-    t.string   "bankAccountName"
-    t.string   "bankLocation"
-    t.boolean  "bankAuthorization"
-    t.boolean  "meetRegulations"
-    t.boolean  "zeusDatabase"
-    t.boolean  "diner"
-    t.boolean  "party"
-    t.string   "shirtsize"
-    t.string   "volunteerPreferences"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.string   "study"
-  end
-
-  add_index "registrations", ["club_id"], :name => "index_registrations_on_club_id"
-  add_index "registrations", ["college_id"], :name => "index_registrations_on_college_id"
-  add_index "registrations", ["sex_id"], :name => "index_registrations_on_sex_id"
-
   create_table "sexes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -107,12 +107,12 @@ ActiveRecord::Schema.define(:version => 20120216121400) do
 
   create_table "volunteer_days", :force => true do |t|
     t.integer  "day_id"
-    t.integer  "registration_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "entry_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "volunteer_days", ["day_id"], :name => "index_volunteer_days_on_day_id"
-  add_index "volunteer_days", ["registration_id"], :name => "index_volunteer_days_on_registration_id"
+  add_index "volunteer_days", ["entry_id"], :name => "index_volunteer_days_on_entry_id"
 
 end

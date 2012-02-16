@@ -1,4 +1,4 @@
-class Registration < ActiveRecord::Base
+class Entry < ActiveRecord::Base
   serialize :volunteerPreferences, Hash
   belongs_to :sex
   belongs_to :club
@@ -135,7 +135,7 @@ class Registration < ActiveRecord::Base
 end
 # == Schema Information
 #
-# Table name: registrations
+# Table name: entries
 #
 #  id                   :integer         not null, primary key
 #  name                 :string(255)

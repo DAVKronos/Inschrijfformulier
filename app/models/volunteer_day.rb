@@ -1,6 +1,6 @@
 class VolunteerDay < ActiveRecord::Base
   belongs_to :day
-  belongs_to :registration
+  belongs_to :entry
 end
 # == Schema Information
 #
@@ -8,7 +8,7 @@ end
 #
 #  id              :integer         not null, primary key
 #  day_id          :integer
-#  registration_id :integer
+#  entry_id :integer
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #

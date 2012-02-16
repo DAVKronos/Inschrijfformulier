@@ -3,10 +3,10 @@
 = f.text_field :licensenumber
 
 = f.label :vereniging
-= collection_select(:registration, :club_id, Club.all, :id, :name)
+= collection_select(:entry, :club_id, Club.all, :id, :name)
 
 = f.label :onderwijsinstelling
-= collection_select(:registration, :college_id, College.all, :id, :name)
+= collection_select(:entry, :college_id, College.all, :id, :name)
 
 = f.label :studie
 = f.text_field :study
@@ -16,4 +16,4 @@
 
 = f.label :geboortedatum
 %div.form-horizontal
-  = date_select(:registration, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year}, :class => "datepicker")
+  = date_select(:entry, :birthdate, {:start_year => Time.now.year - 80, :end_year => Time.now.year}, :class => "datepicker")

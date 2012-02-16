@@ -3,4 +3,4 @@
 = f.text_field :name, "data-original-title" => "Bijv. Kegel van Kronos-Uros"
 
 = f.label :geslacht
-= collection_select(:registration, :sex_id, Sex.all, :id, :name)
+= collection_select(:entry, :sex_id, Sex.all, :id, :name)

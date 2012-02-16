@@ -1,0 +1,27 @@
+%ul.entry
+  %li
+    Naam:
+    = entry.name
+  %li
+    Emailadres:
+    = entry.participant.email
+  %li
+    Geslacht:
+    = entry.sex.name
+  - if entry.athlete?
+    %li
+      Geboortedatum:
+      = l entry.birthdate
+    %li
+      Atletiekvereniging:
+      = entry.club.name
+      %li
+        Onderwijsinstelling:
+        = entry.college.name
+    - if false
+      %li
+      = link_to 'verwijder', entry, :method => :delete, :confirm => "Weet je het zeker?", :title => "Verwijder #{entry.name}"
+  - if entry.athlete?
+    %li
+      Onderdeel gegevens:
+  = render entry.event_participations

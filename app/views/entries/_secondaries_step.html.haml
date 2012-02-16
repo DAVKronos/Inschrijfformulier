@@ -1,10 +1,10 @@
 %h1 Nevenactiviteiten
 %label.checkbox
   = f.check_box :diner
-  Diner (#{number_to_currency @registration.dinerCost})
+  Diner (#{number_to_currency @entry.dinerCost})
 %label.checkbox
   = f.check_box :party
-  feest, overnachting & onbijt (#{number_to_currency @registration.partyCost})
+  feest, overnachting & onbijt (#{number_to_currency @entry.partyCost})
 
-= f.label "Functioneel sportshirt (#{number_to_currency @registration.shirtCost})"
+= f.label "Functioneel sportshirt (#{number_to_currency @entry.shirtCost})"
 = f.select(:shirtsize, [['geen', nil], ['S', "s"], ['M', "m"], ['L', "l"], ['XL', "xl"]],{}, {:class => "select_box"})
