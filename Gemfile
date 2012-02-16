@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'pg'
 gem 'haml', '~> 3.1.4'
 gem 'devise'
+gem 'omniauth-facebook' 
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 group :development do
@@ -22,11 +23,11 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
+  
+  platform :ruby do
+      gem 'therubyracer'
+  end
 end
 
 gem 'jquery-rails'

@@ -18,6 +18,9 @@
           %div{:class => henk}
             =value
             %a{:class => :close, "data-dismiss" => "alert"} x
+      -if participant_signed_in?
+        Je bent ingelogd als #{current_participant.email}
+        = link_to "Log uit", destroy_participant_session_path, :method => :delete
           
           
       = yield
