@@ -16,7 +16,9 @@
 //= require_tree .
 //= require rails.validations
 $(document).ready(function() {
-  $('#registration_name').tooltip({placement: 'right', trigger: 'focus'});
-  $('#registration_email').tooltip({placement: 'right', trigger: 'focus'});
+  $('#entry_name').tooltip({placement: 'right', trigger: 'focus'});
+  $('#entry_email').tooltip({placement: 'right', trigger: 'focus'});
+  $(".alert-message").alert()
+  $(".alert").alert()
 });
 

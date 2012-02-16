@@ -13,10 +13,10 @@ jQuery.fn.centerWidth = function () {
 }
 
 $(document).ready( function(){
-//  $("#registration_form").center();
-//  $("#registration_image").centerWidth();
+//  $("#entry_form").center();
+//  $("#entry_image").centerWidth();
   $(window).resize(function(){
-//    $("#registration_form").center();
-//    $("#registration_image").centerWidth();
+//    $("#entry_form").center();
+//    $("#entry_image").centerWidth();
   });
   });

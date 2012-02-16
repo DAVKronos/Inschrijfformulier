@@ -7,7 +7,7 @@ Inschrijfformulier::Application.routes.draw do
   resources :sexes
   resources :days
   
-  root :to => 'entries#index'
+  root :to => 'entries#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

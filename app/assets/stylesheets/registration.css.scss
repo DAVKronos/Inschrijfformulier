@@ -1,4 +1,4 @@
-// Place all the styles related to the registration controller here.
+// Place all the styles related to the entry controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
@@ -16,12 +16,12 @@ fieldset {
 	margin:0 0 1.5em 0;
 	border:1px solid #ccc;
 }
-.button.registration{
+.button.entry{
     background-color: #A7E568;
     background-image: -moz-linear-gradient(center top , #C1ED94 0pt, #8EDE3D 100%);
 }
 
-.button.registration:hover{
+.button.entry:hover{
    background-color :#9BE252;
    background-image: -moz-linear-gradient(center top , #C1ED94 0pt, #75D810 100%);
    border: 1px solid #848484;
@@ -78,12 +78,12 @@ input.button {
     top: 4px;
 }
 
-#registration_image {
+#entry_image {
 	position: relative;
 	left: 250px;
 }
 
-ul.registration {
+ul.entry {
 	list-style-type: none;
 }
 

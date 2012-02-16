@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
     session[:entry_params] ||= {}
     session[:participations] ||= []
     session[:volunteer_days] ||= {}
-    @entry = current_participant.entry.build(session[:entry_params])
+    @entry = current_participant.build_entry(session[:entry_params])
     @entry.current_step = session[:entry_step]
     @event_participations = @entry.events
     @events = Event.all
@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
         particNumber = session[:entry_params]["event_participations_attributes"].size - 1
         session[:entry_params]["event_participations_attributes"].delete("#{particNumber}")
       end
-      @entry = current_participant.entry.build(session[:entry_params])
+      @entry = current_participant.build_entry(session[:entry_params])
       @entry.current_step = session[:entry_step]
       @events = Event.where("sex_id = '#{@entry.sex.id}'").select{|event| !@entry.events.include?(event)}
       @days = Day.all
