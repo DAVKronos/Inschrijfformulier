@@ -1,5 +1,5 @@
 class EntryMailer < ActionMailer::Base
-  default from: "kegel@kronos.nl"
+  default from: "Kegel de Egel <kegel@kronos.nl>"
   
   def welcome_email(user)
       @user = user
