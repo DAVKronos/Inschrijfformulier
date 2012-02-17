@@ -6,7 +6,9 @@
 
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
 
-  
+    = f.label :naam
+    = f.text_field :name
+    
     = f.label :email 
     = f.text_field :email
 
@@ -19,7 +21,7 @@
     
     %div.submit_field
 
-      = f.submit "Sign up", :class => :button
+      = f.submit "Aanmelden", :class => :button
 
 
   = render :partial => "devise/links"

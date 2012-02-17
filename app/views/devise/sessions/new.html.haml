@@ -15,11 +15,8 @@
 
     %div.submit_field
       = f.submit "Inloggen", :class => "btn"
+      of
+      = link_to "Verbind met Facebook", "/auth/facebook", :class => "btn btn-primary"
 
 
   = render "links"
-  
-%div.span5.well
-  = link_to "Maak een account", new_participant_registration_path, :class => "btn btn-large"
-  of
-  = link_to "Verbind met Facebook", "/auth/facebook", :class => "btn btn-large btn-primary"

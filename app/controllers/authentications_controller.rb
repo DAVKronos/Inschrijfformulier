@@ -18,7 +18,7 @@ class AuthenticationsController < ApplicationController
       redirect_to authentications_url
     else
       unless omniauth['info']['email'].blank?
-        participant = Participant.find_or_initialize_by_email(omniauth['info']['email'])
+        participant = Participant.find_or_initialize_by_email_and_name(omniauth['info']['email'],omniauth['info']['name'])
       end
       participant.apply_omniauth(omniauth)
       if participant.save

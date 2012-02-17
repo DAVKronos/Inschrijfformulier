@@ -20,5 +20,6 @@ $(document).ready(function() {
   $('#entry_email').tooltip({placement: 'right', trigger: 'focus'});
   $(".alert-message").alert()
   $(".alert").alert()
+  setTimeout("$('.flash').fadeOut('slow');", 3000);
 });
 

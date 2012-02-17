@@ -25,6 +25,7 @@ class Entry < ActiveRecord::Base
   validates_presence_of :day_ids, :if => lambda { |o| o.current_step == "participation" && !o.athlete? }
   validates_presence_of :banknumber, :bankLocation, :bankAccountName, :if => lambda { |o| o.current_step == "payment"}
   validates_format_of :banknumber, :with => banknumber_regex, :message => "vul 6 tot 9 getallen in", :if => lambda { |o| o.current_step == "payment"}
+  validates_uniqueness_of :participant_id
   
   
   

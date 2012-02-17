@@ -1,5 +1,8 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate_participant!
+  before_filter :authenticate_participant!,  :except => [:home]
+  before_filter :participant_current_participant?, :only => [:update, :edit]
+  before_filter :has_no_entry?, :only => [:new, :create]
+  
    
   def index
     @entries = Entry.all
@@ -14,6 +17,7 @@ class EntriesController < ApplicationController
     @event_participations = @entry.events
     @events = Event.all
     @days = Day.all
+    @entry.name = current_participant.name
   end
 
   def create
@@ -51,9 +55,12 @@ class EntriesController < ApplicationController
         session[:entry_step] = session[:entry_params] = session[:participations] = nil
         flash[:notice] = "Inschrijving bevestigd!"
         
-        api_key = '256299867780027'
-        api_secret = '75fb17fe91a45b35483bcc4695232df8'
-        @entry.participant.publish("Ik heb me zojuist ingeschreven voor het NSK Baan!", :facebook, session[:omniauth][:credentials][:token])
+        if !@entry.participant.authentications.empty?
+          api_key = '256299867780027'
+          api_secret = '75fb17fe91a45b35483bcc4695232df8'
+          @entry.participant.publish("Ik heb me zojuist ingeschreven voor het NSK Baan!", :facebook, session[:omniauth][:credentials][:token])
+        end
+        
         EntryMailer.welcome_email(@entry).deliver
         redirect_to @entry
       end
@@ -89,7 +96,7 @@ class EntriesController < ApplicationController
       end
       if last_step
         session[:entry_step] = session[:entry_params] = session[:participations] = nil
-        @entry.entry_session.destroy
+        sign_out(@entry.participant)
         flash[:success] = "Inschrijving geupdated."
         redirect_to :root
       else
@@ -112,9 +119,24 @@ class EntriesController < ApplicationController
       redirect_to entries_path
   end
   
+  def home
+  end
+  
   private
-      def entry_current_entry?
+      def participant_current_participant?
         @entry = Entry.find(params[:id])
-        current_entry == @entry
+        if current_participant != @entry.participant
+          redirect_to root_path
+        end
       end
+      
+      def has_no_entry?
+         if current_participant.entry
+            redirect_to edit_entry_path(current_participant.entry)
+         end
+         
+         !current_participant.entry
+         
+      end
+         
 end

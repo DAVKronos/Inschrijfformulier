@@ -12,9 +12,10 @@ Inschrijfformulier::Application.routes.draw do
   resources :days
   
   as :participant do
-   root :to => 'devise/sessions#new'
    get '/login' => 'devise/sessions#new'
   end
+  
+  root :to => 'entries#home'
   
 
 

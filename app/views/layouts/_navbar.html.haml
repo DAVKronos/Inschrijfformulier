@@ -13,9 +13,11 @@
           </a>
           <ul class="dropdown-menu">
           %li
-            = link_to "Aanpassen", edit_participant_registration_path
+            = link_to "Inschrijving aanpassen", edit_entry_path(current_participant.entry)
           %li
-            = link_to "Facebook gegevens", authentications_path
+            = link_to "Gegevens aanpassen", edit_participant_registration_path
+          %li
+            = link_to "Facebook koppeling", authentications_path
           %li
             = link_to "Log uit", destroy_participant_session_path, :method => :delete
           </ul>

@@ -35,6 +35,8 @@ class DeviseCreateParticipants < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
+      
+      t.string :name,              :default => ""
 
 
       t.timestamps
