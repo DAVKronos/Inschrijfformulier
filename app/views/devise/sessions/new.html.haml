@@ -1,0 +1,25 @@
+%div.span5
+  %h2 Inloggen
+
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = f.label :email 
+    = f.email_field :email 
+
+    = f.label :wachtwoord 
+    = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      %div
+        = f.check_box :remember_me 
+        onthoud mij
+
+    %div.submit_field
+      = f.submit "Inloggen", :class => "btn"
+
+
+  = render "links"
+  
+%div.span5.well
+  = link_to "Maak een account", new_participant_registration_path, :class => "btn btn-large"
+  of
+  = link_to "Verbind met Facebook", "/auth/facebook", :class => "btn btn-large btn-primary"

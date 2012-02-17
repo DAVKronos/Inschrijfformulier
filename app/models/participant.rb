@@ -1,6 +1,6 @@
 class Participant < ActiveRecord::Base
-  has_one :entry
-  has_many :authentications
+  has_one :entry, :dependent => :destroy
+  has_many :authentications, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

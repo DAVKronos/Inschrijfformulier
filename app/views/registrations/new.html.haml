@@ -1,0 +1,25 @@
+%div.span5
+
+  %h2 Aanmelden
+
+
+
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+
+  
+    = f.label :email 
+    = f.text_field :email
+
+    -if @participant.password_required?
+      = f.label :wachtwoord
+      = f.password_field :password
+
+      = f.label :wachtwoord_bevestiging
+      = f.password_field :password_confirmation 
+    
+    %div.submit_field
+
+      = f.submit "Sign up", :class => :button
+
+
+  = render :partial => "devise/links"
