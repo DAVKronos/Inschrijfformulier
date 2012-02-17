@@ -12,8 +12,9 @@
           <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-          %li
-            = link_to "Inschrijving aanpassen", edit_entry_path(current_participant.entry)
+          -if current_participant.entry
+            %li
+              = link_to "Inschrijving aanpassen", edit_entry_path(current_participant.entry)
           %li
             = link_to "Gegevens aanpassen", edit_participant_registration_path
           %li
