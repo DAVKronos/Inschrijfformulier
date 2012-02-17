@@ -131,12 +131,9 @@ class EntriesController < ApplicationController
       end
       
       def has_no_entry?
-         if current_participant.entry
+         if current_participant.entry && !current_participant.entry.new_record?
             redirect_to edit_entry_path(current_participant.entry)
          end
-         
-         !current_participant.entry
-         
       end
          
 end
