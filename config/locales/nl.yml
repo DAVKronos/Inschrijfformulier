@@ -1,4 +1,11 @@
 nl:
+  devise:
+      failure:
+          participant:
+              invalid: Deze combinatie van inloggegevens is niet correct
+      registrations:
+          participant:
+              signed_up: Je ben successvol aangemeld!
   shirtsize: maat t-shirt
   date:
     abbr_day_names:

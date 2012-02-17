@@ -11,7 +11,12 @@ Inschrijfformulier::Application.routes.draw do
   resources :sexes
   resources :days
   
-  root :to => 'entries#new'
+  as :participant do
+   root :to => 'devise/sessions#new'
+   get '/login' => 'devise/sessions#new'
+  end
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

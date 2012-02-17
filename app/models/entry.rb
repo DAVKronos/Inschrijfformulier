@@ -144,8 +144,8 @@ end
 #  club_id              :integer
 #  licensenumber        :string(255)
 #  college_id           :integer
+#  participant_id       :integer
 #  studentnumber        :string(255)
-#  email                :string(255)
 #  banknumber           :string(255)
 #  bankAccountName      :string(255)
 #  bankLocation         :string(255)
@@ -156,7 +156,7 @@ end
 #  party                :boolean
 #  shirtsize            :string(255)
 #  volunteerPreferences :string(255)
-#  volunteerSkills      :string(255)
+#  auth_hash            :string(255)
 #  created_at           :datetime        not null
 #  updated_at           :datetime        not null
 #  study                :string(255)
