@@ -1,0 +1,15 @@
+* Naam: #{entry.name}
+
+* Emailadres: #{entry.participant.email}
+    
+* Geslacht: #{entry.sex.name}
+  
+- if entry.athlete?
+  * Geboortedatum: #{l entry.birthdate}
+      
+  * Atletiekvereniging: #{entry.club.name}
+  
+  * Onderwijsinstelling: #{entry.college.name}
+
+- if entry.athlete?
+  * Onderdeel gegevens: #{render entry.event_participations}
