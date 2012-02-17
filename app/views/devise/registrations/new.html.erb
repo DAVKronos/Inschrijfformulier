@@ -1,4 +1,4 @@
-<h2>Aanmelden</h2>
+<h2>Registreren</h2>
 
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -13,7 +13,7 @@
   <div><%= f.label :wachtwoord_bevestiging %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div class="submit_field"><%= f.submit "Sign up", :class => "button" %></div>
+  <div class="submit_field"><%= f.submit "Registreer", :class => "button" %></div>
 <% end %>
 
 <%= render "links" %>

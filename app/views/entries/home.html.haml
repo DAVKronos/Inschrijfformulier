@@ -6,3 +6,16 @@
     = link_to "Maak een account", new_participant_registration_path, :class => "btn btn-large"
     of
     = link_to "Verbind met Facebook", "/auth/facebook", :class => "btn btn-large btn-primary"
+%div.row
+  %div.span4
+    %h1 Inloggen
+    %p Als je al eerder een account had aangemaakt, kun je hier meteen inloggen
+    = link_to "Inloggen", login_path, :class => "btn"
+  %div.span4
+    %h1 Deelnemerlijst
+    %p Klik hieronder om de meest actuele deelnemerslijst te bekijken
+    = link_to "Deelnemers", events_path, :class => "btn"
+  %div.span4
+    %h1 Informatie
+    %p Voor informatie over het NSK Baan 2012 kun je terecht op de website
+    = link_to "Naar de website", "https://nskbaan.kronos.nl", :class => "btn"
