@@ -1,19 +1,18 @@
-<h2>Sign up</h2>
+<h2>Aanmelden</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
+  <p><%= f.label :email %>
   <%= f.text_field :email %></p>
 
 <% if @participant.password_required? %>
-  <p><%= f.label :password %><br />
+  <p><%= f.label :wachtwoord %>
   <%= f.password_field :password %></p>
 
-  <p><%= f.label :password_confirmation %><br />
+  <p><%= f.label :wachtwoord_bevestiging %>
   <%= f.password_field :password_confirmation %></p>
 <% end %>
-  <p><%= f.submit "Sign up" %></p>
+  <p><%= f.submit "Sign up", :class => :button %></p>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "devise/links" %>

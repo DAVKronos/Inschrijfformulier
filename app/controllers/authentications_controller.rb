@@ -10,7 +10,6 @@ class AuthenticationsController < ApplicationController
     if authentication
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:participant, authentication.participant)
-      session[:omniauth] = omniauth.except('extra')
     elsif current_participant
       current_participant.authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'])
       flash[:notice] = "Authentication successful."

@@ -1,17 +1,17 @@
-<h2>Sign in</h2>
+<h2>Inloggen</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
+  <%= f.label :wachtwoord %>
+  <%= f.password_field :password %>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> remember me</div>
+    <div><%= f.check_box :remember_me %> onthoud mij</div>
   <% end -%>
 
-  <div><%= f.submit "Sign in", :class => "button" %></div>
+  <div class="submit_field"><%= f.submit "Inloggen", :class => "button" %></div>
 <% end %>
 
 <%= render "links" %>
