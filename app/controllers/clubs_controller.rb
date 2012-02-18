@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  load_and_authorize_resource
     def index
       @clubs = Club.all
     end

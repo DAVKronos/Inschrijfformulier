@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     end
     
   def current_ability
-    @current_ability ||= AccountAbility.new(current_participant)
+    @current_ability ||= Ability.new(current_participant)
   end
 end

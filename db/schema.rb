@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216154102) do
+ActiveRecord::Schema.define(:version => 20120218140401) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "participant_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20120216154102) do
     t.string   "name",                   :default => ""
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.boolean  "admin"
   end
 
   add_index "participants", ["email"], :name => "index_participants_on_email", :unique => true

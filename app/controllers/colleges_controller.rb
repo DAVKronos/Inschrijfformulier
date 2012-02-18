@@ -1,4 +1,5 @@
 class CollegesController < ApplicationController
+  load_and_authorize_resource
   def index
     @colleges = College.all
   end
