@@ -1,0 +1,13 @@
+# config/application.yml
+defaults: &defaults
+  facebook_appid: ""
+  facebook_appsecret: ""
+  
+development:
+    <<: *defaults
+
+test:
+    <<: *defaults
+
+production:
+    <<: *defaults

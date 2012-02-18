@@ -13,6 +13,7 @@ gem 'fb_graph', '~> 2.4.0'
 gem 'chronic_duration', '~> 0.9.6'
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 gem 'cancan'
+gem 'settingslogic'
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta1'

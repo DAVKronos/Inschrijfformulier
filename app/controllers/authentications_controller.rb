@@ -6,6 +6,7 @@ class AuthenticationsController < ApplicationController
 
   def create
     omniauth = request.env["omniauth.auth"]
+    session['fb_access_token'] = omniauth['credentials']['token']
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     puts authentication
     if authentication

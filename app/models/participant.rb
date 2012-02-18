@@ -12,15 +12,16 @@ class Participant < ActiveRecord::Base
   validates_presence_of :name
   
   def apply_omniauth(omniauth)
-    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'])
   end
   
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
   
-  def facebook(token)
-    @fb_user ||= FbGraph::User.me(token)
+
+  def facebook(access_token)
+    @fb_user ||= FbGraph::User.me(access_token)
   end
   
   def publish(text, feed_name, token)
@@ -50,5 +51,6 @@ end
 #  name                   :string(255)     default("")
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
+#  admin                  :boolean
 #
 

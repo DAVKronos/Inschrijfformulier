@@ -55,9 +55,7 @@ class EntriesController < ApplicationController
         flash[:notice] = "Inschrijving bevestigd!"
         
         if !@entry.participant.authentications.empty?
-          api_key = '256299867780027'
-          api_secret = '75fb17fe91a45b35483bcc4695232df8'
-          @entry.participant.publish("Ik heb me zojuist ingeschreven voor het NSK Baan!", :facebook, session[:omniauth][:credentials][:token])
+          @entry.participant.publish("Ik heb me zojuist ingeschreven voor het NSK Baan!", :facebook, session['fb_access_token'])
         end
         
         EntryMailer.welcome_email(@entry).deliver
@@ -133,6 +131,14 @@ class EntriesController < ApplicationController
          if current_participant.entry && !current_participant.entry.new_record?
             redirect_to edit_entry_path(current_participant.entry)
          end
+      end
+      
+      
+      def get_facebook_token
+        client = OAuth2::Client.new(Settings.facebook_appid, Settings.facebook_appsecret, :site => 'https://graph.facebook.com')
+        token = OAuth2::AccessToken.new(client, session['fb_access_token'])
+        
+        return token
       end
          
 end
