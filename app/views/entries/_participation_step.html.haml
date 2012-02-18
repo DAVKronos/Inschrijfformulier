@@ -3,13 +3,13 @@
 =f.fields_for :event_participations do |p|
   %div.well
     %a{:name => "onderdeel#{event_counter}"}
-    %h4 Onderdeel #{event_counter}
+    %h4 Onderdeel #{event_counter} #{number_to_currency event_counter == 1 ? 6 : 4}
     = p.collection_select(:event_id, @events, :id, :name)
     = p.label :beste_prestatie
-    = p.text_field :best_performance, :class => "participation"
-    = p.label :plaats
+    = p.text_field :best_performance, :class => "participation best-performance", "data-original-title" => "Bijv. 2:02.83 of 4.05m"
+    = p.label :plaats_beste_prestatie
     = p.text_field :best_location, :class => "participation"
-    = p.label :datum
+    = p.label :datum_beste_prestatie
     %div.form-horizontal
       = p.date_select(:best_date, {:start_year => Time.now.year - 30, :end_year => Time.now.year}, :class => "datepicker")
   - event_counter += 1

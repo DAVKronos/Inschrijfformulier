@@ -20,4 +20,4 @@
             m
         - else
           %td
-            = ChronicDuration.output(partic.best_performance, :format => :chrono)
+            = ChronicDuration.output(partic.best_performance, :format => :chrono) if partic.best_performance

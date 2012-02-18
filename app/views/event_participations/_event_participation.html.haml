@@ -2,12 +2,13 @@
   %li
     %b
       =event_participation.event.name
-    - if !event_participation.event.time_format
-      =number_with_precision(event_participation.best_performance, :precision => 2)
-      m
-    - else
-      = ChronicDuration.output(event_participation.best_performance, :format => :chrono)
-    =l event_participation.best_date
-    te
-    =event_participation.best_location
+      - if event_participation.best_performance
+        - if !event_participation.event.time_format
+          =number_with_precision(event_participation.best_performance, :precision => 2)
+          m
+        - else
+          = ChronicDuration.output(event_participation.best_performance, :format => :chrono)
+        =l event_participation.best_date
+        te
+        =event_participation.best_location
     
