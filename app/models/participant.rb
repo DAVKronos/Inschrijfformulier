@@ -12,7 +12,7 @@ class Participant < ActiveRecord::Base
   validates_presence_of :name
   
   def apply_omniauth(omniauth)
-    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'])
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
   
   def password_required?
