@@ -5,11 +5,12 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'pg', '~> 0.12.2'
 gem 'haml', '~> 3.1.4'
-gem 'devise'
-gem 'omniauth-facebook'
-gem "fb_graph", "~> 2.4.0"
+gem 'devise', '~> 2.0.2'
+gem 'omniauth-facebook', '~> 1.2.0'
+gem 'fb_graph', '~> 2.4.0'
+gem 'chronic_duration', '~> 0.9.6'
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 group :development do

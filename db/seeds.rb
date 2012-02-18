@@ -17,13 +17,17 @@ end
 
 open("db/onderdelenmannen.txt") do |events|
   events.read.each_line do |event|
-    Event.find_or_create_by_name_and_sex_id(event.chomp, :sex_id => Sex.find_by_name(:Man).id)
+    format, name = event.chomp.split("|")
+    time_format = format == "Sec" ? true : false
+    Event.find_or_create_by_name_and_sex_id(name, :sex_id => Sex.find_by_name(:Man).id, :time_format => time_format)
   end
 end
 
 open("db/onderdelenvrouwen.txt") do |events|
   events.read.each_line do |event|
-    Event.find_or_create_by_name_and_sex_id(event.chomp, :sex_id => Sex.find_by_name(:Vrouw).id)
+    format, name = event.chomp.split("|")
+    time_format = format == "Sec" ? true : false
+    Event.find_or_create_by_name_and_sex_id(name, :sex_id => Sex.find_by_name(:Vrouw).id, :time_format => time_format)
   end
 end
 

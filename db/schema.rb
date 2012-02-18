@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20120216154102) do
   create_table "event_participations", :force => true do |t|
     t.integer  "event_id"
     t.integer  "entry_id"
-    t.string   "best_performance"
+    t.float    "best_performance"
     t.date     "best_date"
     t.string   "best_location"
     t.datetime "created_at",       :null => false
@@ -86,8 +86,9 @@ ActiveRecord::Schema.define(:version => 20120216154102) do
   create_table "events", :force => true do |t|
     t.string   "name"
     t.integer  "sex_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "time_format"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "events", ["sex_id"], :name => "index_events_on_sex_id"

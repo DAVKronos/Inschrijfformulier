@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name
       t.references :sex
+      t.boolean :time_format
 
       t.timestamps
     end

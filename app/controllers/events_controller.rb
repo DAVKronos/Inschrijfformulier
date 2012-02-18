@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.includes(:event_participations, :sex, {:entries => :club}).all
   end
 
   def new

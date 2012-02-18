@@ -40,6 +40,8 @@ GEM
     attr_required (0.0.5)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    chronic_duration (0.9.6)
+      numerizer (~> 0.1.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -82,6 +84,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     multipart-post (1.1.5)
+    numerizer (0.1.1)
     oauth2 (0.5.2)
       faraday (~> 0.7)
       multi_json (~> 1.0)
@@ -157,15 +160,16 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta1)
+  chronic_duration (~> 0.9.6)
   client_side_validations!
   coffee-rails (~> 3.2.1)
-  devise
+  devise (~> 2.0.2)
   faker (~> 1.0.1)
   fb_graph (~> 2.4.0)
   haml (~> 3.1.4)
   jquery-rails
-  omniauth-facebook
-  pg
+  omniauth-facebook (~> 1.2.0)
+  pg (~> 0.12.2)
   populator (~> 1.0.0)
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)

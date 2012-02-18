@@ -1,1 +1,25 @@
-=event.name
+%h3
+  =event.name
+  =event.sex.name.downcase + "#{event.sex.name == "Man" ? "nen" : "en"}"
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th naam
+      %th vereniging
+      %th beste prestatie
+      %th locatie
+      %th datum
+  %tbody
+    - event.event_participations.sort { |a,b| a.best_performance <=> b.best_performance }.each do |partic|
+      %tr
+        %td=partic.entry.name
+        %td=partic.entry.club.name
+        - if !event.time_format
+          %td
+            =number_with_precision(partic.best_performance, :precision => 2)
+            m
+        - else
+          %td
+            = ChronicDuration.output(partic.best_performance, :format => :chrono)
+        %td=partic.best_location
+        %td=l partic.best_date
