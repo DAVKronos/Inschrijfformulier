@@ -6,14 +6,14 @@
     %tr
       %th naam
       %th vereniging
+      %th geboortedatum
       %th beste prestatie
-      %th locatie
-      %th datum
   %tbody
     - event.event_participations.sort { |a,b| a.best_performance <=> b.best_performance }.each do |partic|
       %tr
         %td=partic.entry.name
         %td=partic.entry.club.name
+        %td=l partic.entry.birthdate
         - if !event.time_format
           %td
             =number_with_precision(partic.best_performance, :precision => 2)
@@ -21,5 +21,3 @@
         - else
           %td
             = ChronicDuration.output(partic.best_performance, :format => :chrono)
-        %td=partic.best_location
-        %td=l partic.best_date
