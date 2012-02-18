@@ -40,6 +40,7 @@ GEM
     attr_required (0.0.5)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    cancan (1.6.7)
     chronic_duration (0.9.6)
       numerizer (~> 0.1.1)
     coffee-rails (3.2.2)
@@ -160,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.1.beta1)
+  cancan
   chronic_duration (~> 0.9.6)
   client_side_validations!
   coffee-rails (~> 3.2.1)

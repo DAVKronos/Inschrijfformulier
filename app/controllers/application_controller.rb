@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
         #return request.env['omniauth.origin'] || stored_location_for(resource) || new_entry_path
         new_entry_path
     end
+    
+  def current_ability
+    @current_ability ||= AccountAbility.new(current_participant)
+  end
 end

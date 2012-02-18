@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_filter :authenticate_participant!,  :except => [:home]
-  before_filter :participant_current_participant?, :only => [:update, :edit]
+  before_filter :participant_current_participant?, :only => [:update, :edit, :show]
   before_filter :has_no_entry?, :only => [:new, :create]
   
    
