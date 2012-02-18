@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def current_ability
     @current_ability ||= Ability.new(current_participant)
   end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => "Je hebt geen toegang tot deze pagina"
+  end
 end
