@@ -1,0 +1,2 @@
+module EventParticipationHelper
+end

@@ -1,5 +1,7 @@
 Inschrijfformulier::Application.routes.draw do
 
+  resources :event_participations
+
   match '/auth/:provider/callback' => 'authentications#create'  
 
   devise_for :participants, :controllers => { :registrations => 'registrations' }

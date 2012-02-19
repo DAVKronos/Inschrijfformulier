@@ -77,7 +77,7 @@ class EntriesController < ApplicationController
     @events = Event.where("sex_id = '#{@entry.sex.id}'")
     @days = Day.all
     if params[:new_participation_button]
-      @entry.event_participations.build
+      @entry.event_participations.create
     end
     if @entry.update_attributes(params[:entry])
       if params[:back_button]
