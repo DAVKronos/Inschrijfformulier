@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :mailer_set_url_options
+  layout :set_layout
  
  
   def mailer_set_url_options
@@ -18,4 +19,13 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => "Je hebt geen toegang tot deze pagina"
   end
+
+  private
+    def set_layout
+      if request.headers['X-PJAX']
+        "pjax"
+      else
+        "application"
+      end
+    end
 end

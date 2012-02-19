@@ -1,6 +1,7 @@
 %h1 Overzicht
 %h5 Controleer a.u.b. je gegevens
 = render @entry
+%p Er zal nog een e-mail ter bevestiging gestuurd worden, waar ook staat hoe je je gegevens later weer kunt aanpassen
 %br
 - if f.object.mustPay?
   %label.checkbox
@@ -12,4 +13,4 @@
     Ik ga akkoord met het wedstrijdreglement
   %label.checkbox
     = f.check_box :zeusDatabase
-    Mijn e-mailadres mag worden opgenomen in de Z.E.U.S. database
+    Mijn e-mailadres mag worden opgenomen in de Zeus database

@@ -10,16 +10,19 @@
     = csrf_meta_tags
 
   %body{:class => "#{params[:action] == 'home' || params[:controller] == 'events' ? 'white_background' : ''}"}
-  
-    = render "layouts/navbar"
-    .container
+    #main
+      .loader{ :style => "display:none"}
+        =image_tag 'spin.gif'
+      = render "layouts/navbar"
+      .container
+        
 
-      %section{:class => "round"}
-        -flash.each do |key, value|
-          - henk = key=="alert" ? "flash alert-#{key} fade in" : "flash alert fade in" 
-          %div{:class => henk}
-            =value
-            %a{:class => :close, "data-dismiss" => "alert"} x
+        %section{:class => "round"}
+          -flash.each do |key, value|
+            - henk = key=="alert" ? "flash alert-#{key} fade in" : "flash alert fade in" 
+            %div{:class => henk}
+              =value
+              %a{:class => :close, "data-dismiss" => "alert"} x
           
           
-      = yield
+        = yield
