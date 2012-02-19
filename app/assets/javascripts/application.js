@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require_tree .
 //= require rails.validations
-//= require jquery.pjax
 $(document).ready(function() {
   $('#entry_name').tooltip({placement: 'right', trigger: 'focus'});
   $('#entry_email').tooltip({placement: 'right', trigger: 'focus'});
@@ -23,8 +22,5 @@ $(document).ready(function() {
   $(".alert-message").alert()
   $(".alert").alert()
   setTimeout("$('.flash').fadeOut('slow');", 3000);
-  $('a').pjax('#main').live('click', function(){
-  $(this).showLoader()
-})
 });
 
