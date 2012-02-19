@@ -6,7 +6,7 @@
     %h4 Onderdeel #{event_counter} (#{number_to_currency event_counter == 1 ? 6 : 4})
     = p.collection_select(:event_id, @events, :id, :name)
     = p.label :beste_prestatie
-    = p.text_field :best_performance, :class => "participation best-performance", "data-original-title" => "Bijv. 2:02.83 of 4.05m"
+    = p.text_field :best_performance, :class => "participation best-performance", "data-original-title" => "Bijv. 2:02.83, 60.23 of 4.05m"
     = p.label :plaats_beste_prestatie
     = p.text_field :best_location, :class => "participation"
     = p.label :datum_beste_prestatie
