@@ -9,7 +9,32 @@
       
   * Atletiekvereniging: #{entry.club.name}
   
+  * Licentienummber Atletiekunie: #{entry.licensenumber}
+  
   * Onderwijsinstelling: #{entry.college.name}
+
+-if entry.diner
+  * Je hebt je opgegeven voor het diner.
+  
+-if entry.party
+  * Je hebt je opgegeven voor het feest, overnachting en ontbijt.
+  
+-if !entry.shirtsize.empty?
+  * Je hebt een deelnemers t-shirt besteld met de maat: #{entry.shirtsize.capitalize}
+  
+- if entry.volunteer?
+  * Je hebt je opgegeven als vrijwilliger op:
+  
+  - entry.days.each do |day|
+    * #{l day.date}
+    
+  * Je t-shirt maat is: #{entry.tshirtmaat.capitalize}
 
 - if entry.athlete?
   * Onderdeel gegevens: #{render entry.event_participations}
+  
+-if entry.mustPay?
+  * Totaalbedrag: #{number_to_currency entry.totalCost}
+  
+  * Bankrekening: #{mask_number entry.banknumber}
+    

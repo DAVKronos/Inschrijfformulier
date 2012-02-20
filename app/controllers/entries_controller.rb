@@ -94,7 +94,7 @@ class EntriesController < ApplicationController
       if last_step
         session[:entry_step] = session[:entry_params] = session[:participations] = nil
         sign_out(@entry.participant)
-        flash[:success] = "Inschrijving geupdated."
+        flash[:success] = "Inschrijving bijgewerkt."
         redirect_to :root
       else
         render 'new' unless last_step

@@ -1,5 +1,6 @@
 %h1 Deelname gegevens
 - event_counter = 1
+- @events.sort! { |a,b| a.created_at <=> b.created_at }
 =f.fields_for :event_participations do |p|
   %div.well
     %a{:name => "onderdeel#{event_counter}"}

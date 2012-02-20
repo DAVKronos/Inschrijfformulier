@@ -1,19 +1,17 @@
-Sec|4x400m
-Sec|4x100m
-Meter|Verspringen
-Meter|Polsstokspringen
-Meter|Hinkstapspringen
-Meter|Hoogspringen
-Meter|Speerwerpen
-Meter|Kogelslingeren
-Meter|Kogelstoten
-Meter|Discuswerpen
-Sec|3000m Steeple
-Sec|400m horden
-Sec|110m horden
-Sec|5000m
-Sec|1500m
-Sec|800m 
-Sec|400m
-Sec|200m
 Sec|100m
+Sec|200m
+Sec|400m
+Sec|800m
+Sec|1500m
+Sec|5000m
+Sec|110m horden
+Sec|400m horden
+Sec|3000m Steeple
+Meter|Discuswerpen
+Meter|Kogelstoten
+Meter|Kogelslingeren
+Meter|Speerwerpen
+Meter|Hoogspringen
+Meter|Hinkstapspringen
+Meter|Polsstokspringen
+Meter|Verspringen

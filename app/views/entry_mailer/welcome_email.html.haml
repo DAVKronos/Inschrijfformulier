@@ -3,17 +3,36 @@
   %head
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   %body
-    %h1 Beste #{@user.name.split[0]}, 
+    %h1 Hallo #{@entry.name.split[0]}, 
     %p
-      Bedankt voor je aanmelding voor het NSK Baan,
-      we hebben de volgende gegevens van je geregistreerd:<br/>
-      =render @user
+      Bedankt voor je inschrijving voor het NSK Baan op 17&18 mei in het FBK-stadion te Hengelo.
+      We hebben de volgende gegevens van je ontvangen:
+      =render @entry
     %p
-      Mochten vroeg of laat deze gegevens niet (meer) kloppen, dan kun je ze
-      veranderen door op de bijgesloten link te klikken en in te loggen met
-      je e-mailadres en wachtwoord of klikken op "verbind met facebook": #{@url}
-    %p Bedankt voor je inschrijving en tot op het NSK Baan!
+      In de laatste week voor de wedstrijd zul je nog een e-mail van ons ontvangen met daarin de laatste deelnemersinformatie.
+    %p
+      Via de website is het nog tot uitelijk 23:59, 7 mei 2012 mogelijk om je inschrijving te wijzigen. Mocht je nog vragen hebben dan kun je de organisatie bereiken via:
+      nskbaan2012@gmail.com
+    %p Tot op de wedstrijd,
+    %p
+      Organisatiecommissie NSK Baan 2012
+      %br
+      e-mail: 
+      = mail_to "nskbaan2012@gmail.com"
+      %br
+      website: 
+      = link_to "www.nskbaan.nl", "http://www.nskbaan.nl"
+      %br
+      twitter: 
+      = link_to "@nskbaan2012", "https://twitter.com/#!/nskbaan2012"
+      %br
+      facebook: 
+      = link_to "www.facebook.com/events/277760965610032/", "www.facebook.com/events/277760965610032/"
     %br
     %br
     %br
-    %p Dit is een geautomatiseerd bericht, Kegel zal niet op deze mails reageren
+    %br
+    %p 
+      Dit is een geautomatiseerd bericht, voor vragen kun je contact opnemen via
+      = mail_to "nskbaan2012@gmail.com"
+  

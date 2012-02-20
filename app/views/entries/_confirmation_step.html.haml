@@ -1,16 +1,18 @@
 %h1 Overzicht
 %h5 Controleer a.u.b. je gegevens
 = render @entry
-%p Er zal nog een e-mail ter bevestiging gestuurd worden, waar ook staat hoe je je gegevens later weer kunt aanpassen
+%p Er zal nog een e-mail ter bevestiging gestuurd worden. Als je de mail niet in je mailbox vindt, vergeet dan niet je spambox te checken.
 %br
 - if f.object.mustPay?
   %label.checkbox
     = f.check_box :bankAuthorization, :validate => false
-    Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @entry.totalCost} van mijn rekening af te schrijven
+    Ik machtig hierbij de organisatie van het NSK Baan 2012 om #{number_to_currency @entry.totalCost} van mijn rekening af te schrijven (verplicht)
 - if f.object.athlete?
   %label.checkbox
     = f.check_box :meetRegulations, :validate => false
-    Ik ga akkoord met het wedstrijdreglement
+    Ik ga akkoord met het 
+    = link_to "wedstrijdreglement", "http://nskbaan.kronos.nl/wedstrijd"
+    (verplicht)
   %label.checkbox
     = f.check_box :zeusDatabase
     Mijn e-mailadres mag worden opgenomen in de Zeus database
