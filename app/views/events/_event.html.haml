@@ -9,7 +9,7 @@
       %th geboortedatum
       %th beste prestatie
   %tbody
-    - event.event_participations.sort { |a,b| a.best_performance <=> b.best_performance }.each do |partic|
+    - event.event_participations(:order => 'best_performance').each do |partic|
       %tr
         %td=partic.entry.name
         %td=partic.entry.club.name
