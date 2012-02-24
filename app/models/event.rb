@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :sex
-  has_many :event_participations, :dependent => :destroy
+  has_many :event_participations, :dependent => :destroy, :order => 'best_performance'
   has_many :entries, :through => :event_participations
 end
 # == Schema Information
