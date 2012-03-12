@@ -13,7 +13,7 @@ class Entry < ActiveRecord::Base
   
   
   attr_writer :current_step
-  name_regex = /\A[A-Z][a-z]+\s([a-z]+\s([a-z]+\s)*)?[A-Z][a-z]*(-[A-Z][a-z]+)*\z/
+  name_regex = /\A[A-Z].*\z/
   banknumber_regex = /\A\d{6,9}\z/
   
   validates_presence_of :name, :if => lambda { |o| o.current_step == "general" }
