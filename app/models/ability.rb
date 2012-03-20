@@ -27,12 +27,13 @@ class Ability
     
     participant ||= Participant.new
       if participant.admin?
-        can :manage, :all
+        can :read, :all
         can [:home], [Entry]
       else
         can :read, :all
         can [:home], [Entry]
         cannot :read, [Entry]
+        cannot :read, [Day]
         can :manage, [Entry] , :participant_id => participant.id
         cannot :index, [Entry]
       end
