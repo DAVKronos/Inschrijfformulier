@@ -29,6 +29,7 @@ class Ability
       if participant.admin?
         can :read, :all
         can [:home], [Entry]
+        can :manage, [Entry] , :participant_id => participant.id
       else
         can :read, :all
         can [:home], [Entry]
