@@ -6,7 +6,7 @@
 = collection_select(:entry, :club_id, Club.all, :id, :name)
 
 = f.label :onderwijsinstelling
-= collection_select(:entry, :college_id, College.all, :id, :name)
+= collection_select(:entry, :college_id, College.find(:all, :order => "name ASC"), :id, :name)
 
 = f.label :studie
 = f.text_field :study
