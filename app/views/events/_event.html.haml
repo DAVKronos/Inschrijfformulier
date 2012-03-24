@@ -12,8 +12,8 @@
     - event.event_participations.each do |partic|
       %tr
         %td=partic.entry.name
-		-if partic.entry.club
-        	%td=partic.entry.club.name
+        -if partic.entry.club
+          %td=partic.entry.club.name
         %td=l partic.entry.birthdate
         - if !event.time_format
           %td
