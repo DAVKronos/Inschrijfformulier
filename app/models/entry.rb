@@ -127,7 +127,7 @@ class Entry < ActiveRecord::Base
   end
   
   def partyCost
-    8.00
+    5.00
   end
   
   def shirtCost

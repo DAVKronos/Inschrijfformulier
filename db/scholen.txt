@@ -1,10 +1,25 @@
+BRESS
+Christelijke Hogeschool Ede (CHE)
 Design Academy Eindhoven
 Erasmus Universiteit Rotterdam
+Fontys (Maastricht)
 Fontys Hogeschool Eindhoven
 Hanzehogeschool Groningen
+HBO Den Haag
+HBO Leiden
+Hoge School Rotterdam
 Hogeschool van Amsterdam (HvA)
+Hogeschool van Arnhem en Nijmegen (HAN)
+Hogeschool van Utrecht
+Hogeschool Zeeland
+Hoogeschool Zuyd
+Hotelschool Maastricht
+I-Pabo
+INHolland
+Opl.int. Fysiotherapie Tim van der Laan
 Radboud Universiteit Nijmegen
 Rijksuniversiteit Groningen
+Saxion Hogescholen
 Technische Universiteit Delft
 Technische Universiteit Eindhoven
 Universiteit Leiden
@@ -13,9 +28,7 @@ Universiteit Twente (UT)
 Universiteit Utrecht
 Universiteit van Amsterdam (UvA)
 Universiteit van Tilburg
+USS Mesa Cosa
+Vakschool Wageningen
 Vrije Universiteit Amsterdam (VU)
 Wageningen Universiteit
-BRESS
-I-Pabo
-Saxion Hogescholen
-Hogeschool Zeeland

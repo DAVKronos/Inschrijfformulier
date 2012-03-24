@@ -14,7 +14,8 @@
       = l entry.birthdate
     %li
       Atletiekvereniging:
-      = entry.club.name
+	  - if entry.club
+      	= entry.club.name
     %li
       Licentienummer Atletiekunie:
       =entry.licensenumber
