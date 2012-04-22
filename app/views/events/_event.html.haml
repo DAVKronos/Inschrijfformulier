@@ -17,7 +17,7 @@
         %td=l partic.entry.birthdate
         - if !event.time_format
           %td
-            =number_with_precision(partic.best_performance, :precision => 2)
+            =number_with_precision(partic.best_performance, :precision => 2) if partic.best_performance
             m
         - else
           %td
