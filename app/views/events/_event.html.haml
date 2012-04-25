@@ -14,7 +14,7 @@
         %td=partic.entry.name
         -if partic.entry.club
           %td=partic.entry.club.name
-        %td=l partic.entry.birthdate
+        %td=l partic.entry.birthdate if partic.entry.birthdate
         - if !event.time_format
           %td
             =number_with_precision(partic.best_performance, :precision => 2) if partic.best_performance
