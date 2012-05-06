@@ -4,7 +4,10 @@ class EntriesController < ApplicationController
   
    
   def index
-    @entries = Entry.all
+    respond_to do |format|
+      format.csv {render :csv => Entry.all}
+      format.html {@entries = Entry.all}
+    end
   end
 
   def new

@@ -133,6 +133,31 @@ class Entry < ActiveRecord::Base
   def shirtCost
     12.00
   end
+  
+  # ===============
+  # = CSV support =
+  # ===============
+  
+  comma do
+    
+    name 'Naam'
+    sex :name => 'Geslacht'
+    licensenumber 'Licentienummer'
+    college :name => 'OnderwijsInstelling'
+    study 'Studie'
+    studentnumber 'Studentnummer'
+    banknumber 'Rekeningnummer'
+    bankAccountName 'Naam Rekeninghouder'
+    bankLocation 'Plaats bank'
+    totalCost 'Totale kosten'
+    zeusDatabase 'zeus database'
+    participant :email => 'E-mail'
+    diner
+    party
+    shirtsize 'Maat t-shirt'
+    volunteerPreferences
+    
+  end
 end
 # == Schema Information
 #

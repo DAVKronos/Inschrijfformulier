@@ -14,6 +14,7 @@ gem 'chronic_duration', '~> 0.9.6'
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 gem 'cancan'
 gem 'settingslogic'
+gem "comma", "~> 3.0"
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta1'
