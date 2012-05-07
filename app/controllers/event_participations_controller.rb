@@ -1,4 +1,5 @@
 class EventParticipationsController < ApplicationController
+  load_and_authorize_resource
   def destroy
       event_participation = EventParticipation.find(params[:id])
         event_participation.destroy
