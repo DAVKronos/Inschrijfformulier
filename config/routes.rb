@@ -12,6 +12,7 @@ Inschrijfformulier::Application.routes.draw do
   resources :colleges
   resources :sexes
   resources :days
+  resources :volunteer_days
   
   as :participant do
    get '/login' => 'devise/sessions#new'

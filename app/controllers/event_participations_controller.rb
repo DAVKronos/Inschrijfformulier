@@ -8,7 +8,8 @@ class EventParticipationsController < ApplicationController
   
   def index
     respond_to do |format|
-      format.csv {render :csv => EventParticipation.all}
+      format.csv {render :csv => EventParticipation.all
+      response.headers['Content-Disposition'] = "attachment; filename=\"OnderdelenDeelnemers#{Time.now}.csv\""}
     end
   end
   

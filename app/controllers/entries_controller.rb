@@ -5,7 +5,8 @@ class EntriesController < ApplicationController
    
   def index
     respond_to do |format|
-      format.csv {render :csv => Entry.all}
+      format.csv {render :csv => Entry.all
+      response.headers['Content-Disposition'] = "attachment; filename=\"Deelnemers#{Time.now}.csv\""}
       format.html {@entries = Entry.all}
     end
   end
