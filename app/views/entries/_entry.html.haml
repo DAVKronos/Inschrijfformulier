@@ -15,13 +15,13 @@
     %li
       Atletiekvereniging:
     - if entry.club
-      = entry.club.name
+      = entry.club.name if entry.club
     %li
       Licentienummer Atletiekunie:
       =entry.licensenumber
     %li
       Onderwijsinstelling:
-      = entry.college.name
+      = entry.college.name if entry.college
   -if entry.diner
     %li
       Je hebt je opgegeven voor het diner.
