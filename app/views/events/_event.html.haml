@@ -15,10 +15,4 @@
         -if partic.entry.club
           %td=partic.entry.club.name
         %td=l partic.entry.birthdate if partic.entry.birthdate
-        - if !event.time_format
-          %td
-            =number_with_precision(partic.best_performance, :precision => 2) if partic.best_performance
-            m
-        - else
-          %td
-            = ChronicDuration.output(partic.best_performance, :format => :chrono) if partic.best_performance
+        %td=partic.best_performance

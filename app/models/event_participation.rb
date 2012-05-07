@@ -11,9 +11,19 @@ class EventParticipation < ActiveRecord::Base
       if self.event.time_format
         self[:best_performance] = ChronicDuration.parse(val)   # parse the human input
       else
-        self[:best_performance] = val
+        self[:best_performance] = val + "m"
       end
     end
+    
+  def best_performance
+    if self.event
+      if self.event.time_format
+        ChronicDuration.output(self[:best_performance], :format => :chrono) if self[:best_performance]
+      else
+        number_with_precision(self[:best_performance], :precision => 2) if self[:best_performance]
+      end
+    end
+  end
     
     comma do
       entry :name => 'Naam'
@@ -21,7 +31,7 @@ class EventParticipation < ActiveRecord::Base
       entry :licensenumber => 'Licentienummer'
       entry :birthdate => 'Geboortedatum'
       entry { |entry| entry.club.name if entry.club }
-      best_performance 'Beste prestatie'
+      best_performance
     end
 end
 # == Schema Information
