@@ -19,7 +19,7 @@ class EventParticipation < ActiveRecord::Base
   def best_performance
     if self.event
       if self.event.time_format
-        ChronicDuration.output(self[:best_performance], :format => :chrono) if self[:best_performance]
+        ChronicDuration.output(self[:best_performance], :format => :short) if self[:best_performance]
       else
         number_with_precision(self[:best_performance], :precision => 2) if self[:best_performance]
       end
