@@ -5,4 +5,11 @@ class EventParticipationsController < ApplicationController
         flash[:success] = "Onderdeeldeelname verwijderd"
           redirect_to edit_entry_path(current_participant.entry)
   end
+  
+  def index
+    respond_to do |format|
+      format.csv {render :csv => EventParticipation.all}
+    end
+  end
+  
 end

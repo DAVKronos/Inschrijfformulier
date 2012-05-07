@@ -14,6 +14,15 @@ class EventParticipation < ActiveRecord::Base
         self[:best_performance] = val
       end
     end
+    
+    comma do
+      entry :name => 'Naam'
+      event :name => 'Onderdeel'
+      entry :licensenumber => 'Licentienummer'
+      entry :birthdate => 'Geboortedatum'
+      entry { |entry| entry.club.name }
+      best_performance 'Beste prestatie'
+    end
 end
 # == Schema Information
 #

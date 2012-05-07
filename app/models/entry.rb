@@ -155,9 +155,10 @@ class Entry < ActiveRecord::Base
     diner
     party
     shirtsize 'Maat t-shirt'
-    volunteerPreferences
+    volunteer?
     
   end
+    
 end
 # == Schema Information
 #
