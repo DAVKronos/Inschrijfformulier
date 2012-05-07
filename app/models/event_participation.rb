@@ -1,4 +1,5 @@
 class EventParticipation < ActiveRecord::Base
+  include ActionView::Helpers
   belongs_to :event
   belongs_to :entry
   validates :event_id, :uniqueness => { :scope => :entry_id }
