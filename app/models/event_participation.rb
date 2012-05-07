@@ -6,7 +6,7 @@ class EventParticipation < ActiveRecord::Base
   
   best_performance_regex = /\A(\d*,{0}\.\d*m?|\d*:\d{2}\.\d*|\d*\.\d*)\z/
   
-  validates_format_of :best_performance, :with => best_performance_regex, :allow_blank => true
+  #validates_format_of :best_performance, :with => best_performance_regex, :allow_blank => true
   
   def best_performance=(val)
       if self.event.time_format
