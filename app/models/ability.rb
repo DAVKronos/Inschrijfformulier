@@ -35,6 +35,8 @@ class Ability
         can [:home], [Entry]
         cannot :read, [Entry]
         cannot :read, [Day]
+        cannot :read, [EventParticipation]
+        cannot :read, [VolunteerDay]
         can :manage, [Entry] , :participant_id => participant.id
         cannot :index, [Entry]
       end
