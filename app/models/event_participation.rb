@@ -20,7 +20,7 @@ class EventParticipation < ActiveRecord::Base
       event :name => 'Onderdeel'
       entry :licensenumber => 'Licentienummer'
       entry :birthdate => 'Geboortedatum'
-      entry { |entry| entry.club.name }
+      entry { |entry| entry.club.name if entry.club }
       best_performance 'Beste prestatie'
     end
 end

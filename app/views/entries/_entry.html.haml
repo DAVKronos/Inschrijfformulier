@@ -11,7 +11,7 @@
   - if entry.athlete?
     %li
       Geboortedatum:
-      = l entry.birthdate
+      = l entry.birthdate if entry.birthdate
     %li
       Atletiekvereniging:
     - if entry.club
